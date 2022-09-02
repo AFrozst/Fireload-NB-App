@@ -12,3 +12,7 @@ web-build/
 
 # macOS
 .DS_Store
+
+# Node
+npm-debug.log
+yarn-error.log

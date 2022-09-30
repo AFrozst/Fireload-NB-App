@@ -1,3 +1,5 @@
+import assets from "./assets";
+
 const InstitutionsData = [
   {
     id: 1,
@@ -15,6 +17,7 @@ const InstitutionsData = [
     averageDebt: 30000,
     averageSalary: 60000,
     averageSalary10Years: 100000,
+    image: assets.building,
   },
   {
     id: 2,
@@ -32,6 +35,7 @@ const InstitutionsData = [
     averageDebt: 30000,
     averageSalary: 60000,
     averageSalary10Years: 100000,
+    image: assets.building,
   },
   {
     id: 3,
@@ -49,6 +53,7 @@ const InstitutionsData = [
     averageDebt: 30000,
     averageSalary: 60000,
     averageSalary10Years: 100000,
+    image: assets.building,
   },
   {
     id: 4,
@@ -66,6 +71,7 @@ const InstitutionsData = [
     averageDebt: 30000,
     averageSalary: 60000,
     averageSalary10Years: 100000,
+    image: assets.building,
   },
   {
     id: 5,
@@ -83,6 +89,7 @@ const InstitutionsData = [
     averageDebt: 30000,
     averageSalary: 60000,
     averageSalary10Years: 100000,
+    image: assets.building,
   },
   {
     id: 6,
@@ -100,6 +107,7 @@ const InstitutionsData = [
     averageDebt: 30000,
     averageSalary: 60000,
     averageSalary10Years: 100000,
+    image: assets.building,
   },
 ];
 

@@ -13,7 +13,7 @@ import { COLORS, SIZES, InstitutionsData } from "../constants";
 const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <FocusedStatusBar background={COLORS.primary} />
+      <FocusedStatusBar backgroundColor={COLORS.primary} />
       <View style={styles.container}>
         <Text style={styles.titleText}>Estudio de Carga de Fuego</Text>
 

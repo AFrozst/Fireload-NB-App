@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { COLORS } from "../../constants";
 
 import Institutions from "../../screens/Institutions/Institutions";
 import Detail from "../../screens/Institutions/Detail";
@@ -16,9 +17,9 @@ const InstitutionsStackScreen = () => {
         options={({ navigation }) => ({
           title: "Instituciones",
           headerStyle: {
-            backgroundColor: "#f4511e",
+            backgroundColor: COLORS.primary,
           },
-          headerTintColor: "#fff",
+          headerTintColor: COLORS.white,
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -26,7 +27,7 @@ const InstitutionsStackScreen = () => {
             <MaterialCommunityIcons
               name="plus"
               size={24}
-              color="white"
+              color={COLORS.white}
               style={{ marginRight: 10 }}
               onPress={() => navigation.navigate("Institution Details Screen")}
             />

@@ -1,4 +1,5 @@
-import { COLORS, SIZES } from "./theme";
+import assets from "./assets";
+import { COLORS, SIZES, SHADOWS, FONTS } from "./theme";
 import { InstitutionsData } from "./dummyData";
 
-export { COLORS, SIZES , InstitutionsData };
+export { assets, COLORS, SIZES, SHADOWS, FONTS, InstitutionsData };

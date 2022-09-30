@@ -1,15 +1,13 @@
-import { View, Text, Button } from "react-native";
 import React from "react";
+import { LayoutScreen } from "../../Layouts";
+import { View, Text } from "react-native";
+import { InstitutionList } from "../../components";
 
-const Institutions = ({navigation}) => {
+const Institutions = ({ navigation }) => {
   return (
-    <View>
-      <Text>Institutions Frozst</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Institution Details Screen")}
-      />
-    </View>
+    <LayoutScreen>
+      <InstitutionList />
+    </LayoutScreen>
   );
 };
 

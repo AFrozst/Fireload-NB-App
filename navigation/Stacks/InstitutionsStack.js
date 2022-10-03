@@ -19,25 +19,13 @@ const InstitutionsStackScreen = () => {
           headerStyle: {
             backgroundColor: COLORS.primary,
           },
-          headerTintColor: COLORS.white,
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-          headerRight: () => (
-            <MaterialCommunityIcons
-              name="plus"
-              size={24}
-              color={COLORS.white}
-              style={{ marginRight: 10 }}
-              onPress={() => navigation.navigate("Institution Details Screen")}
-            />
-          ),
+          headerShown: false,
         })}
       />
       <StackInstitution.Screen
         name="Institution Details Screen"
         component={Detail}
-        options={{ title: "Detail" }}
+        options={{ title: "Detail", headerShown: false }}
       />
     </StackInstitution.Navigator>
   );

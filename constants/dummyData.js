@@ -7,6 +7,8 @@ const InstitutionsData = [
     location: "Berkeley, CA",
     type: "Public",
     size: "Large",
+    description:
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Lorem ipsum dolor sit amet consectetur adipiscing elit consequat accumsan sapien, lectus convallis malesuada odio curae habitasse dignissim nascetur. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis. Ullamcorper platea penatibus ornare egestas nulla ligula hendrerit nisl suscipit sociosqu maximus, tincidunt aptent habitant purus pharetra ultrices dapibus laoreet nisi lacinia. Porta malesuada netus vel sapien conubia porttitor aliquam ut pretium ante litora molestie senectus magna egestas sociosqu, eget aliquet fames pharetra felis posuere varius fringilla quisque in arcu montes eu ullamcorper.",
     tuition: 15000,
     acceptanceRate: 0.1,
     averageGPA: 3.8,
@@ -18,6 +20,29 @@ const InstitutionsData = [
     averageSalary: 60000,
     averageSalary10Years: 100000,
     image: assets.building,
+    bids: [
+      {
+        id: "BID-11",
+        name: "Jessica Tan",
+        price: 4.25,
+        date: "December 12, 2019 at 12:10 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-12",
+        name: "Jennifer Sia",
+        price: 4.5,
+        date: "December 27, 2019 at 1:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-13",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+    ],
   },
   {
     id: 2,
@@ -25,6 +50,8 @@ const InstitutionsData = [
     location: "Stanford, CA",
     type: "Private",
     size: "Large",
+    description:
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Lorem ipsum dolor sit amet consectetur adipiscing elit consequat accumsan sapien, lectus convallis malesuada odio curae habitasse dignissim nascetur. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis. Ullamcorper platea penatibus ornare egestas nulla ligula hendrerit nisl suscipit sociosqu maximus, tincidunt aptent habitant purus pharetra ultrices dapibus laoreet nisi lacinia. Porta malesuada netus vel sapien conubia porttitor aliquam ut pretium ante litora molestie senectus magna egestas sociosqu, eget aliquet fames pharetra felis posuere varius fringilla quisque in arcu montes eu ullamcorper.",
     tuition: 50000,
     acceptanceRate: 0.05,
     averageGPA: 4.0,
@@ -36,6 +63,22 @@ const InstitutionsData = [
     averageSalary: 60000,
     averageSalary10Years: 100000,
     image: assets.building,
+    bids: [
+      {
+        id: "BID-14",
+        name: "Jessica Tan",
+        price: 4.25,
+        date: "December 12, 2019 at 12:10 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-15",
+        name: "Jennifer Sia",
+        price: 4.5,
+        date: "December 27, 2019 at 1:50 PM",
+        image: assets.place,
+      },
+    ],
   },
   {
     id: 3,
@@ -43,6 +86,8 @@ const InstitutionsData = [
     location: "Cambridge, MA",
     type: "Private",
     size: "Large",
+    description:
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Lorem ipsum dolor sit amet consectetur adipiscing elit consequat accumsan sapien, lectus convallis malesuada odio curae habitasse dignissim nascetur. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis. Ullamcorper platea penatibus ornare egestas nulla ligula hendrerit nisl suscipit sociosqu maximus, tincidunt aptent habitant purus pharetra ultrices dapibus laoreet nisi lacinia. Porta malesuada netus vel sapien conubia porttitor aliquam ut pretium ante litora molestie senectus magna egestas sociosqu, eget aliquet fames pharetra felis posuere varius fringilla quisque in arcu montes eu ullamcorper.",
     tuition: 50000,
     acceptanceRate: 0.05,
     averageGPA: 4.0,
@@ -54,6 +99,36 @@ const InstitutionsData = [
     averageSalary: 60000,
     averageSalary10Years: 100000,
     image: assets.building,
+    bids: [
+      {
+        id: "BID-16",
+        name: "Jessica Tan",
+        price: 4.25,
+        date: "December 12, 2019 at 12:10 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-17",
+        name: "Jennifer Sia",
+        price: 4.5,
+        date: "December 27, 2019 at 1:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-18",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-19",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+    ],
   },
   {
     id: 4,
@@ -61,6 +136,8 @@ const InstitutionsData = [
     location: "New Haven, CT",
     type: "Private",
     size: "Large",
+    description:
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Lorem ipsum dolor sit amet consectetur adipiscing elit consequat accumsan sapien, lectus convallis malesuada odio curae habitasse dignissim nascetur. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis. Ullamcorper platea penatibus ornare egestas nulla ligula hendrerit nisl suscipit sociosqu maximus, tincidunt aptent habitant purus pharetra ultrices dapibus laoreet nisi lacinia. Porta malesuada netus vel sapien conubia porttitor aliquam ut pretium ante litora molestie senectus magna egestas sociosqu, eget aliquet fames pharetra felis posuere varius fringilla quisque in arcu montes eu ullamcorper.",
     tuition: 50000,
     acceptanceRate: 0.05,
     averageGPA: 4.0,
@@ -72,6 +149,50 @@ const InstitutionsData = [
     averageSalary: 60000,
     averageSalary10Years: 100000,
     image: assets.building,
+    bids: [
+      {
+        id: "BID-20",
+        name: "Jessica Tan",
+        price: 4.25,
+        date: "December 12, 2019 at 12:10 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-21",
+        name: "Jennifer Sia",
+        price: 4.5,
+        date: "December 27, 2019 at 1:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-22",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-23",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-24",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+      {
+        id: "BID-25",
+        name: "Rosie Wong",
+        price: 4.75,
+        date: "December 31, 2019 at 3:50 PM",
+        image: assets.place,
+      },
+    ],
   },
   {
     id: 5,
@@ -79,6 +200,8 @@ const InstitutionsData = [
     location: "Princeton, NJ",
     type: "Private",
     size: "Large",
+    description:
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Lorem ipsum dolor sit amet consectetur adipiscing elit consequat accumsan sapien, lectus convallis malesuada odio curae habitasse dignissim nascetur. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis. Ullamcorper platea penatibus ornare egestas nulla ligula hendrerit nisl suscipit sociosqu maximus, tincidunt aptent habitant purus pharetra ultrices dapibus laoreet nisi lacinia. Porta malesuada netus vel sapien conubia porttitor aliquam ut pretium ante litora molestie senectus magna egestas sociosqu, eget aliquet fames pharetra felis posuere varius fringilla quisque in arcu montes eu ullamcorper.",
     tuition: 50000,
     acceptanceRate: 0.05,
     averageGPA: 4.0,
@@ -90,6 +213,7 @@ const InstitutionsData = [
     averageSalary: 60000,
     averageSalary10Years: 100000,
     image: assets.building,
+    bids: [],
   },
   {
     id: 6,
@@ -97,6 +221,8 @@ const InstitutionsData = [
     location: "New York, NY",
     type: "Private",
     size: "Large",
+    description:
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Lorem ipsum dolor sit amet consectetur adipiscing elit consequat accumsan sapien, lectus convallis malesuada odio curae habitasse dignissim nascetur. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis. Ullamcorper platea penatibus ornare egestas nulla ligula hendrerit nisl suscipit sociosqu maximus, tincidunt aptent habitant purus pharetra ultrices dapibus laoreet nisi lacinia. Porta malesuada netus vel sapien conubia porttitor aliquam ut pretium ante litora molestie senectus magna egestas sociosqu, eget aliquet fames pharetra felis posuere varius fringilla quisque in arcu montes eu ullamcorper.",
     tuition: 50000,
     acceptanceRate: 0.05,
     averageGPA: 4.0,
@@ -108,6 +234,7 @@ const InstitutionsData = [
     averageSalary: 60000,
     averageSalary10Years: 100000,
     image: assets.building,
+    bids: [],
   },
 ];
 

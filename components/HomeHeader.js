@@ -15,6 +15,7 @@ const HomeHeader = () => {
         >
           Hola, Allen 👋
         </Text>
+
         <Text
           style={{
             fontFamily: FONTS.InterBold,

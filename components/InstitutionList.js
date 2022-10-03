@@ -20,9 +20,9 @@ const InstitutionList = () => {
       data={institutions}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
+      showsVerticalScrollIndicator={true}
       onRefresh={loadInstitutions}
       refreshing={false}
-      showsVerticalScrollIndicator={false}
       ListHeaderComponent={<HomeHeader />}
     />
   );

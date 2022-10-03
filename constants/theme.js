@@ -47,7 +47,7 @@ export const SHADOWS = {
     elevation: 7,
   },
   dark: {
-    shadowColor: COLORS.black,
+    shadowColor: COLORS.gray,
     shadowOffset: {
       width: 0,
       height: 7,

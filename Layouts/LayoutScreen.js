@@ -15,8 +15,7 @@ const LayoutScreen = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
-    paddingHorizontal: 0,
+    backgroundColor: COLORS.secondary,
   },
 });
 

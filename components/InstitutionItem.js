@@ -1,6 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { View, StyleSheet, Image } from "react-native";
+
 import { COLORS, SIZES, SHADOWS } from "../constants";
 import { RectButton } from "./Button";
 import { TitleItem, IconLabelItem } from "./SubInfo";
@@ -18,12 +19,13 @@ const InstitutionItem = ({ institution }) => {
       >
         <View style={styles.imageContainer} />
       </View>
+
       <View style={{ width: "100%", padding: SIZES.font }}>
         <View style={styles.infoContainer}>
           <Image
             source={institution.image}
             style={styles.image}
-            resizeMode="contain"
+            resizeMode="cover"
           />
           <View style={styles.info}>
             <TitleItem
@@ -34,6 +36,7 @@ const InstitutionItem = ({ institution }) => {
             />
           </View>
         </View>
+
         <View
           style={{
             flexDirection: "row",
@@ -47,9 +50,9 @@ const InstitutionItem = ({ institution }) => {
             icon="Sectores de Incendio:"
           />
           <RectButton
-            label="Ver más"
-            minWidth={70}
-            fontSize={10}
+            label="Inspeccionar"
+            minWidth={120}
+            fontSize={SIZES.small}
             color={COLORS.quaternary}
             handlePress={() =>
               navigation.navigate("Institution Details Screen", { institution })
@@ -63,14 +66,9 @@ const InstitutionItem = ({ institution }) => {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-between",
     backgroundColor: COLORS.white,
     borderRadius: SIZES.font,
     margin: SIZES.base,
-    backgroundColor: COLORS.white,
-    borderBottomWidth: 1,
     ...SHADOWS.dark,
   },
   infoContainer: {

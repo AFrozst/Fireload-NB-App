@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { SIZES, COLORS, FONTS } from "../constants";
+import { SIZES, COLORS, FONTS } from "../../constants";
 
 export const TitleItem = ({ title, subtitle, titleSize, subtitleSize }) => {
   return (

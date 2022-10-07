@@ -3,33 +3,24 @@ import {
   View,
   Text,
   SafeAreaView,
-  FlatList,
   StyleSheet,
-  TouchableOpacity,
 } from "react-native";
-import { FocusedStatusBar, HomeHeader, InstitutionCard } from "../components";
-import { COLORS, SIZES, InstitutionsData } from "../constants";
+import {
+  FocusedStatusBar,
+  HomeHeader,
+  NotFound,
+} from "../components";
+import { COLORS } from "../constants";
 
 const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <FocusedStatusBar backgroundColor={COLORS.primary} />
-      <View style={styles.container}>
-        <Text style={styles.titleText}>Estudio de Carga de Fuego</Text>
-
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Institutions")}
-          style={styles.buttom}
-        >
-          <Text style={styles.subtitleText}>Instituciones</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Information")}
-          style={styles.buttom}
-        >
-          <Text style={styles.subtitleText}>Informacion General</Text>
-        </TouchableOpacity>
-      </View>
+      <FocusedStatusBar
+        barStyle="light-content"
+        backgroundColor={COLORS.primary}
+      />
+      <HomeHeader />
+      <NotFound />
     </SafeAreaView>
   );
 };

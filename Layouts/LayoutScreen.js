@@ -1,12 +1,11 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { FocusedStatusBar } from "../components";
+import { View, StyleSheet, StatusBar } from "react-native";
 import { COLORS } from "../constants";
 
 const LayoutScreen = ({ children }) => {
   return (
     <View style={styles.container}>
-      <FocusedStatusBar backgroundColor={COLORS.primary} />
+      <StatusBar backgroundColor="#021D34" />
       {children}
     </View>
   );
@@ -15,7 +14,9 @@ const LayoutScreen = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.white,
+    padding: 10,
+    alignItems: "center",
   },
 });
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, TextInput } from "react-native";
-import { COLORS, FONTS, SIZES } from "../constants";
+import { COLORS, FONTS, SIZES } from "../../constants";
 
 const HomeHeader = () => {
   return (
     <View style={styles.container}>
-      <View style={{ marginVertical: SIZES.base }}>
+      <View style={{ marginVertical: SIZES.font }}>
         <Text
           style={{
             fontFamily: FONTS.InterRegular,

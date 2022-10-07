@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-import { TitleItem, IconLabelItem } from "./SubInfo";
-import { COLORS, SIZES, FONTS } from "../constants";
+import { TitleItem, IconLabelItem } from "../common/SubInfo";
+import { COLORS, SIZES, FONTS } from "../../constants";
 
 const DetailsDesc = ({ data }) => {
   const [text, setText] = useState(data.description.slice(0, 100));
@@ -18,12 +18,12 @@ const DetailsDesc = ({ data }) => {
         }}
       >
         <TitleItem
-          title={data.name}
+          title={data.fullName}
           subtitle={data.location}
           titleSize={SIZES.extralarge}
           subtitleSize={SIZES.font}
         />
-        <IconLabelItem icon="🔥" label={data.averageNetPrice} />
+        <IconLabelItem icon="🔥" label={data.numberFireSectors} />
       </View>
       <View
         style={{
@@ -44,7 +44,7 @@ const DetailsDesc = ({ data }) => {
             style={{
               fontSize: SIZES.small,
               fontFamily: FONTS.InterRegular,
-              color: COLORS.secondary,
+              color: COLORS.black,
               lineHeight: SIZES.large,
             }}
           >
@@ -57,7 +57,7 @@ const DetailsDesc = ({ data }) => {
                 color: COLORS.primary,
               }}
               onPress={() => {
-                if(!redMore) {
+                if (!redMore) {
                   setText(data.description);
                   setRedMore(true);
                 } else {

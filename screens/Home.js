@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-} from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
 import {
   FocusedStatusBar,
   HomeHeader,
-  NotFound,
+  BannerImage,
+  RectButtonArrow,
 } from "../components";
-import { COLORS } from "../constants";
+import { COLORS, assets } from "../constants";
 
 const Home = ({ navigation }) => {
   return (
@@ -19,8 +15,39 @@ const Home = ({ navigation }) => {
         barStyle="light-content"
         backgroundColor={COLORS.primary}
       />
-      <HomeHeader />
-      <NotFound />
+
+      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+        <HomeHeader />
+        <BannerImage
+          image={assets.invoice}
+          title="Bienvenido a Firelaod NB App"
+          subtitle="Aplicación base la Normativa Bolviana 58003 y 58005"
+        />
+        <View style={styles.containerButtons}>
+          <RectButtonArrow
+            title="Tus Estudios"
+            minWidth={100}
+            fontSize={16}
+            handlePress={() => navigation.navigate("Institutions")}
+          />
+          <RectButtonArrow
+            title="Informacion General"
+            handlePress={() => navigation.navigate("Information")}
+          />
+          <RectButtonArrow
+            title="Elaborar Reporte"
+            handlePress={() => navigation.navigate("Reports")}
+          />
+          <RectButtonArrow
+            title="Equipos de Extinción"
+            handlePress={() => console.log("Sectores de Incendio")}
+          />
+          <RectButtonArrow
+            title="Equipos de Emergencia"
+            handlePress={() => console.log("Sectores de Incendio")}
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -29,25 +56,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  titleText: {
-    color: COLORS.black,
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
+  containerButtons: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20,
-  },
-  buttom: {
-    backgroundColor: "#021D34",
-    padding: 10,
-    marginTop: 20,
-    width: "50%",
-    alignSelf: "center",
-    borderRadius: 10,
-  },
-  subtitleText: {
-    fontSize: 15,
-    textAlign: "center",
-    color: COLORS.white,
+    marginHorizontal: 20,
   },
 });
 

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   FlatList,
 } from "react-native";
-import { LayoutScreen } from "../layouts";
+import { Layout } from "../layouts";
 import CombustibleItem from "../components/others/CombustibleItem";
 
 const FireSectorScreen = ({ navigation, route }) => {
@@ -59,13 +59,13 @@ const FireSectorScreen = ({ navigation, route }) => {
           <Text style={styles.textBold}>5</Text>
         </View>
       </View>
-      <LayoutScreen>
+      <Layout>
         <FlatList
           style={{ width: "100%" }}
           data={combustibles}
           renderItem={renderItem}
         />
-      </LayoutScreen>
+      </Layout>
     </View>
   );
 };

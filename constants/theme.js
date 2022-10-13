@@ -13,6 +13,7 @@ export const COLORS = {
 
 export const SIZES = {
   base: 8,
+  padding: 10,
   small: 12,
   font: 14,
   medium: 16,

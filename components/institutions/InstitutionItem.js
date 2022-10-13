@@ -6,7 +6,15 @@ import { TitleItem, IconLabelItem } from "../common/SubInfo";
 
 const InstitutionItem = ({ institution, navigation }) => {
   const handlePress = () => {
-    navigation.navigate("Institution Detail Screen", { institution: institution });
+    navigation.navigate("Institution Detail Screen", {
+      institution: institution,
+    });
+  };
+
+  const handleEdit = () => {
+    navigation.navigate("Institution Form Screen", {
+      institution: institution,
+    });
   };
 
   return (
@@ -34,18 +42,25 @@ const InstitutionItem = ({ institution, navigation }) => {
         </View>
 
         <View style={styles.containerOptions}>
-        <IconLabelItem
-          label={institution.numberFireSectors}
-          icon="Sectores de Incendio:"
-        />
-        <RectButton
-          label="Inspeccionar"
-          minWidth={100}
-          fontSize={SIZES.base}
-          color={COLORS.quaternary}
-          handlePress={handlePress}
-        />
-      </View>
+          <IconLabelItem
+            label={institution.numberFireSectors}
+            icon="Sectores de Incendio:"
+          />
+          <RectButton
+            label="Inspeccionar"
+            minWidth={100}
+            fontSize={SIZES.base}
+            color={COLORS.quaternary}
+            handlePress={handlePress}
+          />
+          <RectButton
+            label="Editar"
+            minWidth={100}
+            fontSize={SIZES.base}
+            color="#F2C94C"
+            handlePress={handleEdit}
+          />
+        </View>
       </View>
     </View>
   );

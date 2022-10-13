@@ -1,5 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TouchableOpacity } from "react-native";
 import { COLORS } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -12,6 +13,7 @@ import FireSectorScreen from "../../screens/FireSectorScreen";
 import InstitutionsScreen from "../../screens/institutions/InstitutionsScreen";
 import DetailScreen from "../../screens/institutions/DetailScreen";
 import FireSectorScreen2 from "../../screens/fireSector/FireSectorScreen";
+import InstitutionFormScreen from "../../screens/institutions/InstitutionFormScreen";
 
 const StackInstitution = createNativeStackNavigator();
 
@@ -26,13 +28,12 @@ const InstitutionsStackScreen = () => {
           headerStyle: { backgroundColor: COLORS.primary },
           headerTitleStyle: { color: COLORS.white },
           headerRight: () => (
-            <Ionicons
-              name="add-circle-outline"
-              size={30}
-              color={COLORS.white}
+            <TouchableOpacity
               style={{ marginRight: 10 }}
-              onPress={() => console.log("Add Institution")}
-            />
+              onPress={() => navigation.navigate("Institution Form Screen")}
+            >
+              <Ionicons name="add-circle-sharp" size={30} color={COLORS.white} />
+            </TouchableOpacity>
           ),
         })}
       />
@@ -56,6 +57,17 @@ const InstitutionsStackScreen = () => {
           headerStyle: { backgroundColor: "#021D34" },
           headerTitleStyle: { color: "#ffffff" },
           headerTintColor: "#ffffff",
+        }}
+      />
+
+      <StackInstitution.Screen
+        name="Institution Form Screen"
+        component={InstitutionFormScreen}
+        options={{
+          title: "Registrar nueva Institución",
+          headerStyle: { backgroundColor: COLORS.primary },
+          headerTitleStyle: { color: COLORS.white },
+          headerTintColor: COLORS.white,
         }}
       />
     </StackInstitution.Navigator>

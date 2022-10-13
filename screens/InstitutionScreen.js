@@ -1,12 +1,12 @@
 import React from "react";
-import { LayoutScreen } from "../layouts";
+import { Layout } from "../layouts";
 import InstLista from "../components/others/InstLista";
 
 const InstitutionScreen = ({ navigation }) => {
   return (
-    <LayoutScreen>
+    <Layout>
       <InstLista />
-    </LayoutScreen>
+    </Layout>
   );
 };
 

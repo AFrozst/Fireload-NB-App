@@ -1,10 +1,10 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import { COLORS, SIZES, SHADOWS } from "../../constants";
+import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
+import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 import { RectButton } from "../common/Button";
 import { TitleItem, IconLabelItem } from "../common/SubInfo";
 
-const InstitutionItem = ({ institution, navigation }) => {
+const InstitutionItem = ({ institution, navigation, handleDelete }) => {
   const handlePress = () => {
     navigation.navigate("Institution Detail Screen", {
       institution: institution,
@@ -26,7 +26,7 @@ const InstitutionItem = ({ institution, navigation }) => {
       <View style={styles.itemContainerInfo}>
         <View style={styles.infortmationContainer}>
           <Image
-            source={institution.image}
+            source={assets.building}
             style={styles.logoImage}
             resizeMode="cover"
           />
@@ -34,7 +34,7 @@ const InstitutionItem = ({ institution, navigation }) => {
           <View style={styles.info}>
             <TitleItem
               title={institution.fullName}
-              subtitle={institution.location}
+              subtitle={institution.createdAt}
               titleSize={SIZES.large}
               subtitleSize={SIZES.small}
             />
@@ -62,6 +62,13 @@ const InstitutionItem = ({ institution, navigation }) => {
           />
         </View>
       </View>
+
+      <TouchableOpacity
+        style={{ backgroundColor: "#ee5253", padding: 7, borderRadius: 5 }}
+        onPress={() => handleDelete(institution.id)}
+      >
+        <Text style={{ color: "#fff" }}>Delete</Text>
+      </TouchableOpacity>
     </View>
   );
 };

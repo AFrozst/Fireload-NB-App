@@ -39,7 +39,8 @@ const DetailScreen = ({ route, navigation }) => {
 
       <FireSectorsList
         data={institution}
-        fireSectors={institution.sectors}
+        //fireSectors={institution.sectors}
+        //fireSectors={institution.firesectors}
         navigation={navigation}
       />
     </SafeAreaView>

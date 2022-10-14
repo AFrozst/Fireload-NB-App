@@ -17,7 +17,8 @@ const FireSectorItem = ({ sector, navigation }) => {
       />
       <View style={styles.informationContainer}>
         <Text style={styles.title}>{sector.name}</Text>
-        <Text style={styles.date}>{sector.date}</Text>
+        <Text style={styles.date}>{sector.updatedAt}</Text>
+        <Text style={styles.date}>Area: {sector.area} m2</Text>
       </View>
       <IconLabelItem icon="🔥" label={sector.totalFireload} />
       <TouchableOpacity style={styles.button} onPress={handlePress}>

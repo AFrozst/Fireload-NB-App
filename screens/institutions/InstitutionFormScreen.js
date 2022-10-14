@@ -4,6 +4,8 @@ import { Layout } from "../../layouts";
 import { BannerImage, RectButton, Input } from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
+import { saveInstitution, updateInstitution } from "../../services/institution";
+
 const InstitutionFormScreen = ({ navigation, route }) => {
   const [institution, setInstitution] = useState({
     fullName: "",
@@ -14,15 +16,18 @@ const InstitutionFormScreen = ({ navigation, route }) => {
     setInstitution({ ...institution, [name]: value });
   };
 
-  const handleSummit = () => {
-    if (!isEditing) {
-      console.log("Guardando");
-      console.log(institution);
-    } else {
-      console.log("Editando");
-      console.log(institution);
+  const handleSummit = async () => {
+    try {
+      if (!isEditing) {
+        await saveInstitution(institution);
+      } else {
+        const id = route.params.institution.id;
+        await updateInstitution(id, institution);
+      }
+      navigation.goBack();
+    } catch (error) {
+      console.log(error);
     }
-    navigation.goBack();
   };
 
   useEffect(() => {

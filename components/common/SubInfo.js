@@ -4,7 +4,7 @@ import { SIZES, COLORS, FONTS } from "../../constants";
 
 export const TitleItem = ({ title, subtitle, titleSize, subtitleSize }) => {
   return (
-    <View>
+    <View style={{ flex: 1}}>
       <Text style={[styles.title, { fontSize: titleSize }]}>{title}</Text>
       <Text style={[styles.subtitle, { fontSize: subtitleSize }]}>
         {subtitle}
@@ -15,7 +15,12 @@ export const TitleItem = ({ title, subtitle, titleSize, subtitleSize }) => {
 
 export const IconLabelItem = ({ icon, label }) => {
   return (
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+      }}
+    >
       <Text style={{ marginRight: 2 }}>{icon}</Text>
       <Text
         style={{

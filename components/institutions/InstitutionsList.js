@@ -1,31 +1,67 @@
 import React, { useState, useEffect } from "react";
-import { FlatList } from "react-native";
+import { FlatList, Alert } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 import InstitutionItem from "./InstitutionItem";
 import HomeHeader from "../common/HomeHeader";
 import Loading from "../common/Loading";
 import NotFound from "../common/NotFound";
+
 import { InstitutionsData } from "../../constants";
+import { getInstitutions, deleteInstitution } from "../../services/institution";
 
 const InstitutionsList = ({ navigation }) => {
   const [institutions, setInstitutions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const isFocused = useIsFocused();
 
   const loadInstitutions = async () => {
     try {
-      setInstitutions(InstitutionsData);
+      const dataApi = await getInstitutions();
+      setInstitutions(dataApi.data);
+      //setInstitutions(InstitutionsData);
       setIsLoading(false);
     } catch (error) {
       setError(true);
     }
   };
 
+  const handleDelete = async (id) => {
+    Alert.alert(
+      "Eliminar Institución",
+      "¿Estás seguro de eliminar esta institución?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Eliminar",
+          onPress: async () => {
+            try {
+              const dataApi = await deleteInstitution(id);
+              loadInstitutions();
+            } catch (error) {
+              console.log(error);
+            }
+          },
+        },
+      ]
+    );
+  };
+
   useEffect(() => {
     loadInstitutions();
-  }, []);
+  }, [isFocused]);
 
   const renderItem = ({ item }) => {
-    return <InstitutionItem institution={item} navigation={navigation} />;
+    return (
+      <InstitutionItem
+        institution={item}
+        navigation={navigation}
+        handleDelete={handleDelete}
+      />
+    );
   };
 
   if (error) {

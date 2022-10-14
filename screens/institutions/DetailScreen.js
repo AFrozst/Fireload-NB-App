@@ -28,11 +28,11 @@ const DetailScreen = ({ route, navigation }) => {
 
       <View style={styles.containerAbsolute}>
         <RectButton
-          label="Back"
+          label="Añadir Sector"
           minWidth={170}
           fontSize={SIZES.large}
           color={COLORS.primary}
-          handlePress={() => navigation.goBack()}
+          handlePress={() => navigation.navigate("Fire Sector Form Screen")}
           {...SHADOWS.dark}
         />
       </View>

@@ -22,6 +22,7 @@ const InstitutionFormScreen = ({ navigation, route }) => {
       console.log("Editando");
       console.log(institution);
     }
+    navigation.goBack();
   };
 
   useEffect(() => {

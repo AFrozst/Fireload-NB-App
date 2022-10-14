@@ -9,10 +9,13 @@ export const COLORS = {
   white: "#FFFFFF",
   black: "#000000",
   textGray: "#4D626C",
+  danger: "#FF0000",
+  focusText: "#10AC84",
 };
 
 export const SIZES = {
   base: 8,
+  padding: 10,
   small: 12,
   font: 14,
   medium: 16,

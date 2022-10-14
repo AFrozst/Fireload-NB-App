@@ -7,7 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import FireSectorItem from "../components/others/FireSectorItem";
-import { LayoutScreen } from "../layouts";
+import { Layout } from "../layouts";
 
 const InstitutionDetailScreen = ({ navigation, route }) => {
   const [institution, setInstitution] = useState(null);
@@ -48,14 +48,14 @@ const InstitutionDetailScreen = ({ navigation, route }) => {
         </View>
       </View>
       
-      <LayoutScreen>
+      <Layout>
         <FlatList
           style={{ width: "100%" }}
           data={fireSectors}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-      </LayoutScreen>
+      </Layout>
     </View>
   );
 };

@@ -1,3 +1,3 @@
-import LayoutScreen from "./LayoutScreen";
+import Layout from "./Layout";
 
-export { LayoutScreen };
+export { Layout };

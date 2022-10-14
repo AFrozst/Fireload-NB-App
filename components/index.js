@@ -5,6 +5,7 @@ import Loading from "./common/Loading";
 import NotFound from "./common/NotFound";
 import { TitleItem, IconLabelItem } from "./common/SubInfo";
 import BannerImage from "./common/BannerImage";
+import Input from "./common/Input";
 import DetailHeader from "./institutions/DetailHeader";
 import InstitutionsList from "./institutions/InstitutionsList";
 import DetailsDesc from "./institutions/DetailsDesc";
@@ -22,6 +23,7 @@ export {
   TitleItem,
   IconLabelItem,
   BannerImage,
+  Input,
   DetailHeader,
   InstitutionsList,
   DetailsDesc,

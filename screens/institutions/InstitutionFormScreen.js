@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TextInput, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { Layout } from "../../layouts";
-import { BannerImage, RectButton } from "../../components";
+import { BannerImage, RectButton, Input } from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const InstitutionFormScreen = ({ navigation, route }) => {
   const [institution, setInstitution] = useState({
@@ -18,8 +17,10 @@ const InstitutionFormScreen = ({ navigation, route }) => {
   const handleSummit = () => {
     if (!isEditing) {
       console.log("Guardando");
+      console.log(institution);
     } else {
       console.log("Editando");
+      console.log(institution);
     }
   };
 
@@ -47,20 +48,22 @@ const InstitutionFormScreen = ({ navigation, route }) => {
         />
 
         <View style={styles.containerForm}>
-          <TextInput
-            style={styles.input}
-            placeholder="Nombre de la Institución"
-            placeholderTextColor="#aaaaaa"
+          <Input
+            label="Nombre de la Institución"
+            placeholder="Nombre Completo"
             value={institution.fullName}
             onChangeText={(text) => handleChanges("fullName", text)}
+            //error = {"This field is required"}
+            underlineColorAndroid="transparent"
           />
+
           {!isEditing ? (
             <RectButton
               label="Guardar"
               fontSize={SIZES.font}
               color={COLORS.quaternary}
               handlePress={handleSummit}
-              width="90%"
+              width="100%"
               borderRadius={SIZES.base}
             />
           ) : (
@@ -69,7 +72,7 @@ const InstitutionFormScreen = ({ navigation, route }) => {
               fontSize={SIZES.font}
               color={COLORS.quaternary}
               handlePress={handleSummit}
-              width="90%"
+              width="100%"
               borderRadius={SIZES.base}
             />
           )}
@@ -85,9 +88,8 @@ const styles = StyleSheet.create({
   },
   containerForm: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
     marginTop: SIZES.padding * 2,
+    paddingHorizontal: SIZES.padding * 2,
   },
   input: {
     width: "90%",

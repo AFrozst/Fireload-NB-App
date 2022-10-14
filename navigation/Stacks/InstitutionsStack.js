@@ -12,8 +12,9 @@ import FireSectorScreen from "../../screens/FireSectorScreen";
 //True Screens
 import InstitutionsScreen from "../../screens/institutions/InstitutionsScreen";
 import DetailScreen from "../../screens/institutions/DetailScreen";
-import FireSectorScreen2 from "../../screens/fireSector/FireSectorScreen";
 import InstitutionFormScreen from "../../screens/institutions/InstitutionFormScreen";
+import FireSectorFormScreen from "../../screens/fireSector/FireSectorFormScreen";
+import FireSectorScreen2 from "../../screens/fireSector/FireSectorScreen";
 
 const StackInstitution = createNativeStackNavigator();
 
@@ -32,7 +33,11 @@ const InstitutionsStackScreen = () => {
               style={{ marginRight: 10 }}
               onPress={() => navigation.navigate("Institution Form Screen")}
             >
-              <Ionicons name="add-circle-sharp" size={30} color={COLORS.white} />
+              <Ionicons
+                name="add-circle-sharp"
+                size={30}
+                color={COLORS.white}
+              />
             </TouchableOpacity>
           ),
         })}
@@ -65,6 +70,17 @@ const InstitutionsStackScreen = () => {
         component={InstitutionFormScreen}
         options={{
           title: "Registrar nueva Institución",
+          headerStyle: { backgroundColor: COLORS.primary },
+          headerTitleStyle: { color: COLORS.white },
+          headerTintColor: COLORS.white,
+        }}
+      />
+
+      <StackInstitution.Screen
+        name="Fire Sector Form Screen"
+        component={FireSectorFormScreen}
+        options={{
+          title: "Nuevo Sector de Fuego",
           headerStyle: { backgroundColor: COLORS.primary },
           headerTitleStyle: { color: COLORS.white },
           headerTintColor: COLORS.white,

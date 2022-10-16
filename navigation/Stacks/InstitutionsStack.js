@@ -14,7 +14,7 @@ import InstitutionsScreen from "../../screens/institutions/InstitutionsScreen";
 import DetailScreen from "../../screens/institutions/DetailScreen";
 import InstitutionFormScreen from "../../screens/institutions/InstitutionFormScreen";
 import FireSectorFormScreen from "../../screens/fireSector/FireSectorFormScreen";
-import FireSectorScreen2 from "../../screens/fireSector/FireSectorScreen";
+import DetailFireSectorScreen from "../../screens/fireSector/DetailFireSectorScreen";
 
 const StackInstitution = createNativeStackNavigator();
 
@@ -23,7 +23,8 @@ const InstitutionsStackScreen = () => {
     <StackInstitution.Navigator>
       <StackInstitution.Screen
         name="Institutions Screen"
-        component={InstitutionsScreen}
+        //component={InstitutionsScreen}
+        component={InstitutionScreen}
         options={({ navigation }) => ({
           title: "Tus Estudios",
           headerStyle: { backgroundColor: COLORS.primary },
@@ -45,7 +46,8 @@ const InstitutionsStackScreen = () => {
 
       <StackInstitution.Screen
         name="Institution Detail Screen"
-        component={DetailScreen}
+        //component={DetailScreen}
+        component={InstitutionDetailScreen}
         options={{
           title: "Detalle de la Institución",
           headerStyle: { backgroundColor: COLORS.primary },
@@ -59,9 +61,20 @@ const InstitutionsStackScreen = () => {
         component={FireSectorScreen}
         options={{
           title: "Detalle Sector de Fuego",
-          headerStyle: { backgroundColor: "#021D34" },
-          headerTitleStyle: { color: "#ffffff" },
-          headerTintColor: "#ffffff",
+          headerStyle: { backgroundColor: COLORS.primary },
+          headerTitleStyle: { color: COLORS.white },
+          headerTintColor: COLORS.white,
+        }}
+      />
+
+      <StackInstitution.Screen
+        name="Fire Sector Detail Screen"
+        component={DetailFireSectorScreen}
+        options={{
+          title: "Detalle Sector de Fuego",
+          headerStyle: { backgroundColor: COLORS.primary },
+          headerTitleStyle: { color: COLORS.white },
+          headerTintColor: COLORS.white,
         }}
       />
 

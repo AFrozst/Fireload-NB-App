@@ -4,10 +4,16 @@ import { Layout } from "../../layouts";
 import { BannerImage, RectButton, Input } from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
+const {
+  saveFireSector,
+  updateFireSector,
+} = require("../../services/fireSector");
+
 const FireSectorFormScreen = ({ navigation, route }) => {
+  const [idInstitution, setIdInstitution] = useState("");
   const [fireSector, setFireSector] = useState({
     name: "",
-    area: "",
+    area: 0,
     description: "",
     observations: "",
   });
@@ -17,14 +23,13 @@ const FireSectorFormScreen = ({ navigation, route }) => {
     setFireSector({ ...fireSector, [name]: value });
   };
 
-  const handleSummit = () => {
+  const handleSummit = async () => {
     try {
       if (!isEditing) {
-        console.log("Guardando");
-        console.log(fireSector);
+        await saveFireSector(idInstitution, fireSector);
       } else {
-        console.log("Editando");
-        console.log(fireSector);
+        const id = route.params.sector.id;
+        await updateFireSector(idInstitution, id, fireSector);
       }
       navigation.goBack();
     } catch (error) {
@@ -33,13 +38,21 @@ const FireSectorFormScreen = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    if (route.params) {
+    if (route.params && route.params.idInstitution && route.params.sector) {
       setIsEditing(true);
-      const { fireSector } = route.params;
-      const name = fireSector.name;
-      //const description = fireSector.description;
-      setFireSector({ name });
+      const { idInstitution, sector } = route.params;
+      setIdInstitution(idInstitution);
+      const setorUpdate = {
+        name: sector.name,
+        area: sector.area.toString(),
+        description: sector.description,
+        observations: sector.observations,
+      };
+      setFireSector(setorUpdate);
       navigation.setOptions({ headerTitle: "Editar el Sector" });
+    } else if (route.params && route.params.idInstitution) {
+      const id = route.params.idInstitution;
+      setIdInstitution(id);
     }
   }, []);
 

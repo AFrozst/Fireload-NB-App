@@ -6,7 +6,7 @@ import HomeHeader from "../common/HomeHeader";
 import Loading from "../common/Loading";
 import NotFound from "../common/NotFound";
 
-import { InstitutionsData } from "../../constants";
+//import { InstitutionsData } from "../../constants";
 import { getInstitutions, deleteInstitution } from "../../services/institution";
 
 const InstitutionsList = ({ navigation }) => {
@@ -22,6 +22,7 @@ const InstitutionsList = ({ navigation }) => {
       //setInstitutions(InstitutionsData);
       setIsLoading(false);
     } catch (error) {
+      console.log(error);
       setError(true);
     }
   };
@@ -39,8 +40,8 @@ const InstitutionsList = ({ navigation }) => {
           text: "Eliminar",
           onPress: async () => {
             try {
-              const dataApi = await deleteInstitution(id);
-              loadInstitutions();
+              await deleteInstitution(id);
+              await loadInstitutions();
             } catch (error) {
               console.log(error);
             }

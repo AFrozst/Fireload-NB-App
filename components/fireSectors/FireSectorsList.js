@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, Alert } from "react-native";
 import DetailHeader from "../institutions/DetailHeader";
 import DetailsDesc from "../institutions/DetailsDesc";
 import FireSectorItem from "./FireSectorItem";
 import Loading from "../common/Loading";
-import { COLORS, FONTS, SIZES, SHADOWS, assets } from "../../constants";
+import { COLORS, FONTS, SIZES } from "../../constants";
+import { useIsFocused } from "@react-navigation/native";
 
 import { getInstitution } from "../../services/institution";
+import { deleteFireSector } from "../../services/fireSector";
 
 const FireSectorsList = ({ data, fireSectors, navigation }) => {
   const [institution, setInstitution] = useState(data);
   const [sectors, setSectors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const renderItem = ({ item }) => {
-    return <FireSectorItem sector={item} navigation={navigation} />;
-  };
+  const isFocused = useIsFocused();
 
   const loadData = async () => {
     try {
@@ -28,9 +27,40 @@ const FireSectorsList = ({ data, fireSectors, navigation }) => {
     }
   };
 
+  const handleDelete = async (id) => {
+    Alert.alert("Eliminar Sector", "¿Estás seguro de eliminar este sector?", [
+      {
+        text: "Cancelar",
+        style: "cancel",
+      },
+      {
+        text: "Eliminar",
+        onPress: async () => {
+          try {
+            await deleteFireSector(data.id, id);
+            await loadData();
+          } catch (error) {
+            console.log(error);
+          }
+        },
+      },
+    ]);
+  };
+
+  const renderItem = ({ item }) => {
+    return (
+      <FireSectorItem
+        idInstitution={data.id}
+        sector={item}
+        navigation={navigation}
+        handleDelete={handleDelete}
+      />
+    );
+  };
+
   useEffect(() => {
     loadData();
-  }, []);
+  }, [isFocused]);
 
   if (isLoading) {
     return <Loading />;

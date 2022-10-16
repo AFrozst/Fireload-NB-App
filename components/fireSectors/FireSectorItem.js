@@ -3,9 +3,17 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { IconLabelItem } from "../common/SubInfo";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
-const FireSectorItem = ({ sector, navigation }) => {
+const FireSectorItem = ({
+  idInstitution,
+  sector,
+  navigation,
+  handleDelete,
+}) => {
   const handlePress = () => {
     navigation.navigate("Fire Sector Screen", { sector });
+  };
+  const handleEdit = () => {
+    navigation.navigate("Fire Sector Form Screen", { idInstitution, sector });
   };
 
   return (
@@ -23,6 +31,16 @@ const FireSectorItem = ({ sector, navigation }) => {
       <IconLabelItem icon="🔥" label={sector.totalFireload} />
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Ver</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={handleEdit}>
+        <Text style={styles.buttonText}>Editar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handleDelete(sector.id)}
+      >
+        <Text style={styles.buttonText}>Eliminar</Text>
       </TouchableOpacity>
     </View>
   );

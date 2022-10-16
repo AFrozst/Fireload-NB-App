@@ -32,7 +32,9 @@ const DetailScreen = ({ route, navigation }) => {
           minWidth={170}
           fontSize={SIZES.large}
           color={COLORS.primary}
-          handlePress={() => navigation.navigate("Fire Sector Form Screen")}
+          handlePress={() => navigation.navigate("Fire Sector Form Screen", {
+            idInstitution: institution.id,
+            })}
           {...SHADOWS.dark}
         />
       </View>

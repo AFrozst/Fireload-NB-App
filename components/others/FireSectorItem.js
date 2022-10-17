@@ -11,7 +11,7 @@ const FireSectorItem = ({ fireSector }) => {
       <TouchableOpacity
         //onPress={() => console.log(fireSector.id)}
         onPress={() =>
-          navigation.navigate("Fire Sector Screen", {
+          navigation.navigate("Fire Sector Detail Screen", {
             data: fireSector,
           })
         }

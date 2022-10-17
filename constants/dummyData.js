@@ -23,6 +23,44 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-11",
+            name: "Cristal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-12",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-13",
+            name: "Metal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-12",
@@ -35,6 +73,20 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-21",
+            name: "Cristal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-13",
@@ -47,6 +99,32 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-31",
+            name: "Cristal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-32",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
     ],
   },
@@ -72,6 +150,32 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-41",
+            name: "Cristal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-42",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-15",
@@ -84,6 +188,7 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [],
       },
     ],
   },
@@ -109,6 +214,20 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-61",
+            name: "Cristal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-17",
@@ -121,6 +240,116 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-71",
+            name: "Cristal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-72",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-73",
+            name: "Metal",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-74",
+            name: "Aceite",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-75",
+            name: "Papel",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-76",
+            name: "Plástico",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-77",
+            name: "Textil",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-78",
+            name: "Vidrio",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+          {
+            id: "M-79",
+            name: "Otros",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-18",
@@ -133,6 +362,7 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [],
       },
       {
         id: "FS-19",
@@ -145,6 +375,7 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [],
       },
     ],
   },
@@ -170,6 +401,20 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-80",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-21",
@@ -182,6 +427,7 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [],
       },
       {
         id: "FS-22",
@@ -194,6 +440,20 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-81",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-23",
@@ -206,6 +466,21 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [
+          {
+            id: "M-82",
+            name: "Madera",
+            name: "Madera",
+            heatValue: 100,
+            heatValue2: 10.0,
+            Sector_Material: {
+              createdAt: "2022-09-22",
+              updatedAt: "2022-09-22",
+              weight: 80.5,
+              totalCalorificValue: 55.5,
+            },
+          },
+        ],
       },
       {
         id: "FS-24",
@@ -218,6 +493,7 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [],
       },
       {
         id: "FS-25",
@@ -230,6 +506,7 @@ const InstitutionsData = [
         totalFireload: 0,
         date: "December 12, 2019 at 12:10 PM",
         image: assets.place,
+        materials: [],
       },
     ],
   },

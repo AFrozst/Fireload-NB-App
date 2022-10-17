@@ -23,8 +23,8 @@ const InstitutionsStackScreen = () => {
     <StackInstitution.Navigator>
       <StackInstitution.Screen
         name="Institutions Screen"
-        //component={InstitutionsScreen}
-        component={InstitutionScreen}
+        component={InstitutionsScreen}
+        //component={InstitutionScreen}
         options={({ navigation }) => ({
           title: "Tus Estudios",
           headerStyle: { backgroundColor: COLORS.primary },
@@ -46,8 +46,8 @@ const InstitutionsStackScreen = () => {
 
       <StackInstitution.Screen
         name="Institution Detail Screen"
-        //component={DetailScreen}
-        component={InstitutionDetailScreen}
+        component={DetailScreen}
+        //component={InstitutionDetailScreen}
         options={{
           title: "Detalle de la Institución",
           headerStyle: { backgroundColor: COLORS.primary },

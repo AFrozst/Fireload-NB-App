@@ -103,6 +103,27 @@ export const RectButtonArrow = ({
   );
 };
 
+export const AddButton = ({ handlePress, ...props }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        width: 50,
+        height: 50,
+        backgroundColor: COLORS.quaternary,
+        position: "absolute",
+        borderRadius: SIZES.extralarge,
+        alignItems: "center",
+        justifyContent: "center",
+        ...SHADOWS.light,
+        ...props,
+      }}
+      onPress={handlePress}
+    >
+      <MaterialCommunityIcons name="plus" size={24} color={COLORS.white} />
+    </TouchableOpacity>
+  );
+};
+
 const styles = StyleSheet.create({
   RecButton: {
     backgroundColor: COLORS.primary,

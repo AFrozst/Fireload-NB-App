@@ -10,7 +10,8 @@ const FireSectorItem = ({
   handleDelete,
 }) => {
   const handlePress = () => {
-    navigation.navigate("Fire Sector Screen", { sector });
+    //navigation.navigate("Fire Sector Screen", { sector });
+    navigation.navigate("Fire Sector Detail Screen", { data: sector });
   };
   const handleEdit = () => {
     navigation.navigate("Fire Sector Form Screen", { idInstitution, sector });

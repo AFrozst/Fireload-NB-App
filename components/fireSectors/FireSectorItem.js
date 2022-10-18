@@ -11,7 +11,7 @@ const FireSectorItem = ({
 }) => {
   const handlePress = () => {
     //navigation.navigate("Fire Sector Screen", { sector });
-    navigation.navigate("Fire Sector Detail Screen", { data: sector });
+    navigation.navigate("Fire Sector Detail Screen", { sector, idInstitution });
   };
   const handleEdit = () => {
     navigation.navigate("Fire Sector Form Screen", { idInstitution, sector });

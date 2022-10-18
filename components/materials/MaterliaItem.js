@@ -1,18 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { SIZES, COLORS, FONTS } from "../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const MaterliaItem = ({ material }) => {
-  const handelDelete = (id) => {
-    Alert.alert("Eliminar Material", "Estas seguro de eliminar este material?", [
-      {
-        text: "Cancel",
-        style: "cancel",
-      },
-      { text: "OK", onPress: () => console.log("OK Pressed:", id) },
-    ]);
-  };
+const MaterliaItem = ({ material, handleDelete }) => {
 
   return (
     <View style={styles.container}>
@@ -30,7 +21,7 @@ const MaterliaItem = ({ material }) => {
         <TouchableOpacity
           style={styles.delete}
           onPress={() => {
-            handelDelete(material.id);
+            handleDelete(material.id);
           }}
         >
           <MaterialCommunityIcons

@@ -21,104 +21,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const FireSectorScreen = ({ navigation, route }) => {
   console.log("================= FIRE SECTOR SCREEN ===================");
-  const [fireSector, setFireSector] = useState(null);
-  const [materials, setMaterials] = useState([
-    {
-      id: "M-71",
-      name: "Cristal",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-    {
-      id: "M-72",
-      name: "Madera",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-    {
-      id: "M-73",
-      name: "Metal",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-    {
-      id: "M-74",
-      name: "Aceite",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-    {
-      id: "M-75",
-      name: "Papel",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-    {
-      id: "M-76",
-      name: "Plástico",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-    {
-      id: "M-77",
-      name: "Textil",
-      heatValue: 100,
-      heatValue2: 10.0,
-      Sector_Material: {
-        createdAt: "2022-09-22",
-        updatedAt: "2022-09-22",
-        weight: 80.5,
-        totalCalorificValue: 55.5,
-      },
-    },
-  ]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { sector, idInstitution } = route.params;
+  const [fireSector, setFireSector] = useState(sector);
 
   useEffect(() => {
-    if (route.params) {
-      const { data } = route.params;
-      setFireSector(data);
-      //setMaterials(data.materials);
-      setIsLoading(false);
-      navigation.setOptions({ headerTitle: data.name });
-      console.log("====================Use Effect: Screen====================");
-    }
+    console.log(
+      "====================Use Effect: Fire Sector===================="
+    );
   }, []);
 
   return (
@@ -129,11 +38,17 @@ const FireSectorScreen = ({ navigation, route }) => {
       />
       {fireSector && <HeaderFireSector sector={fireSector} />}
       <Layout>
-        <MaterialsList combustibles={materials} />
+        <MaterialsList
+          sectorId={fireSector ? fireSector.id : null}
+          institutionId={idInstitution}
+        />
       </Layout>
 
       <AddButton
-        handlePress={() => navigation.navigate("Material Form Screen")}
+        handlePress={() => navigation.navigate("Material Form Screen", {
+          sectorId: fireSector ? fireSector.id : null,
+          institutionId: idInstitution,
+          })}
         bottom={20}
         right={20}
       />

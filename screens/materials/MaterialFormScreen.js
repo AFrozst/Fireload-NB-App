@@ -5,54 +5,16 @@ import { BannerImage, RectButton, Input } from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
 import SelectList from "react-native-dropdown-select-list";
+import { getMaterials, addMaterial } from "../../services/material";
 
-const MaterialFormScreen = ({ navigation }) => {
+const MaterialFormScreen = ({ navigation, route }) => {
+  const [sectorId, setSectorId] = useState(route.params.sectorId);
+  const [institutionId, setInstitutionId] = useState(
+    route.params.institutionId
+  );
   const [selected, setSelected] = useState("");
   const [data, setData] = useState([]);
-  const [materialsAPI, setMaterialsAPI] = useState([
-    {
-      id: 1,
-      name: "Aceite de algodón",
-      heatValue: 9,
-      heatValue2: 37.2,
-    },
-    {
-      id: 2,
-      name: "Aceite de creosota",
-      heatValue: 9,
-      heatValue2: 37.2,
-    },
-    {
-      id: 3,
-      name: "Aceite de lino",
-      heatValue: 9,
-      heatValue2: 37.2,
-    },
-    {
-      id: 4,
-      name: "Aceite mineral",
-      heatValue: 10,
-      heatValue2: 42,
-    },
-    {
-      id: 5,
-      name: "Aceite de oliva",
-      heatValue: 10,
-      heatValue2: 42,
-    },
-    {
-      id: 17,
-      name: "Papel",
-      heatValue: 4,
-      heatValue2: 16.7,
-    },
-    {
-      id: 18,
-      name: "Cartón",
-      heatValue: 4,
-      heatValue2: 16.7,
-    },
-  ]);
+  const [materialsAPI, setMaterialsAPI] = useState([]);
   const [material, setMaterial] = useState({
     material_id: 0,
     weight: 0,
@@ -91,19 +53,35 @@ const MaterialFormScreen = ({ navigation }) => {
     try {
       const sendObject = {
         material_id: material.material_id,
-        weight: + material.weight,
-        heatValue: material.heatValue,
+        weight: +material.weight,
         totalCalorificValue: calculateTotalCalorificValue(),
       };
-      console.log(sendObject);
+      const { response, status } = await addMaterial(
+        institutionId,
+        sectorId,
+        sendObject
+      );
+      if (status === 200) {
+        Alert.alert("Material registrado con éxito");
+        navigation.goBack();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const loadMaterials = async () => {
+    try {
+      const materials = await getMaterials();
+      setMaterialsAPI(materials.data);
+      setData(createSelectList(materials.data));
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    const dataSelectList = createSelectList(materialsAPI);
-    setData(dataSelectList);
+    loadMaterials();
   }, []);
 
   return (
@@ -162,6 +140,7 @@ const MaterialFormScreen = ({ navigation }) => {
             color={COLORS.primary}
             handlePress={handleSummit}
             width="80%"
+            borderRadius={SIZES.base}
           />
         </View>
       </View>

@@ -4,7 +4,13 @@ import React from "react";
 const LayoutScroll = ({ children }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>{children}</ScrollView>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        justifyContent="center"
+      >
+        {children}
+      </ScrollView>
     </SafeAreaView>
   );
 };

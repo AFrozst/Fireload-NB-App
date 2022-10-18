@@ -133,7 +133,7 @@ const FireSectorScreen = ({ navigation, route }) => {
       </Layout>
 
       <AddButton
-        handlePress={() => console.log("Add combustible")}
+        handlePress={() => navigation.navigate("Material Form Screen")}
         bottom={20}
         right={20}
       />

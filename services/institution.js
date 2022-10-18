@@ -1,4 +1,5 @@
 const API = "http://10.0.2.2:5000/api/institutions";
+//const API = "http://192.168.1.85:5000/api/institutions";
 
 export const getInstitutions = async () => {
   const response = await fetch(API, {

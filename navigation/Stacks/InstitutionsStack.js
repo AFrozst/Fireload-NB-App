@@ -15,6 +15,7 @@ import DetailScreen from "../../screens/institutions/DetailScreen";
 import InstitutionFormScreen from "../../screens/institutions/InstitutionFormScreen";
 import FireSectorFormScreen from "../../screens/fireSector/FireSectorFormScreen";
 import DetailFireSectorScreen from "../../screens/fireSector/DetailFireSectorScreen";
+import MaterialFormScreen from "../../screens/materials/MaterialFormScreen";
 
 const StackInstitution = createNativeStackNavigator();
 
@@ -94,6 +95,17 @@ const InstitutionsStackScreen = () => {
         component={FireSectorFormScreen}
         options={{
           title: "Nuevo Sector de Fuego",
+          headerStyle: { backgroundColor: COLORS.primary },
+          headerTitleStyle: { color: COLORS.white },
+          headerTintColor: COLORS.white,
+        }}
+      />
+
+      <StackInstitution.Screen
+        name="Material Form Screen"
+        component={MaterialFormScreen}
+        options={{
+          title: "Añadir Material",
           headerStyle: { backgroundColor: COLORS.primary },
           headerTitleStyle: { color: COLORS.white },
           headerTintColor: COLORS.white,

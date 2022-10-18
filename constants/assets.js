@@ -6,6 +6,7 @@ import notfound from "../assets/images/Server-amico.png";
 import invoice from "../assets/images/Invoice-image.png";
 import newInstitution from "../assets/images/New-Institution.png";
 import newFireSector from "../assets/images/New-Fire-Sector.png";
+import addMaterial from "../assets/images/AddMaterial.png";
 
 export default {
   left,
@@ -15,4 +16,5 @@ export default {
   invoice,
   newInstitution,
   newFireSector,
+  addMaterial,
 };

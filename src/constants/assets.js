@@ -10,6 +10,7 @@ import addMaterial from "../../assets/images/AddMaterial.png";
 import logo from "../../assets/images/logo.png";
 import register from "../../assets/images/register.png";
 import login from "../../assets/images/login.png";
+import emptyData from "../../assets/images/emptyData.png";
 
 export default {
   left,
@@ -23,4 +24,5 @@ export default {
   logo,
   register,
   login,
+  emptyData,
 };

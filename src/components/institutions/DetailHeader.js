@@ -20,7 +20,7 @@ const DetailHeader = ({ institution, navigation }) => {
 const styles = StyleSheet.create({
   headerContainer: {
     width: "100%",
-    height: 200,
+    height: 125,
   },
   headerBackground: {
     resizeMode: "cover",

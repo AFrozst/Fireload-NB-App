@@ -10,7 +10,7 @@ import { useIsFocused } from "@react-navigation/native";
 import { getInstitution } from "../../services/institution";
 import { deleteFireSector } from "../../services/fireSector";
 
-const FireSectorsList = ({ data, fireSectors, navigation }) => {
+const FireSectorsList = ({ data, navigation }) => {
   const [institution, setInstitution] = useState(data);
   const [sectors, setSectors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -78,11 +78,27 @@ const FireSectorsList = ({ data, fireSectors, navigation }) => {
       ListHeaderComponent={() => (
         <React.Fragment>
           <DetailHeader institution={institution} navigation={navigation} />
-          <View style={{ padding: SIZES.font }}>
-            <DetailsDesc data={institution} />
-            {sectors.length > 0 && (
-              <Text style={styles.title}>Sectores de Incendio</Text>
-            )}
+          <View style={{ backgroundColor: COLORS.primary }}>
+            <View
+              style={{
+                padding: SIZES.font,
+                borderTopLeftRadius: SIZES.extralarge,
+                borderTopRightRadius: SIZES.extralarge,
+                backgroundColor: COLORS.white,
+              }}
+            >
+              <DetailsDesc data={institution} />
+              {sectors.length > 0 ? (
+                <Text style={styles.title}>Sectores</Text>
+              ) : (
+                <View style={{ paddingTop: 15 }}>
+                  <Text style={[styles.title, { textAlign: "center" }]}>
+                    No hay sectores de fuego registrados en esta institución
+                  </Text>
+                  <Text style={styles.subText}>Añade uno para comenzar</Text>
+                </View>
+              )}
+            </View>
           </View>
         </React.Fragment>
       )}
@@ -95,6 +111,12 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontSize: SIZES.font,
     fontFamily: FONTS.InterSemiBold,
+  },
+  subText: {
+    color: COLORS.textGray,
+    fontSize: SIZES.small,
+    fontFamily: FONTS.InterRegular,
+    textAlign: "center",
   },
 });
 

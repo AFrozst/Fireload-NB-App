@@ -9,7 +9,6 @@ import { COLORS, SIZES, SHADOWS } from "../../constants";
 import { FIRE_SECTOR_FORM_SCREEN } from "../../constants/routes/names";
 
 const DetailScreen = ({ route, navigation }) => {
-  const isLoading = true;
   const { institution } = route.params;
 
   const loadData = () => {
@@ -44,8 +43,6 @@ const DetailScreen = ({ route, navigation }) => {
 
       <FireSectorsList
         data={institution}
-        //fireSectors={institution.sectors}
-        //fireSectors={institution.firesectors}
         navigation={navigation}
       />
     </SafeAreaView>

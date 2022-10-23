@@ -26,10 +26,10 @@ const DetailsDesc = ({ data }) => {
           subtitleSize={SIZES.font}
         />
       </View>
-      <IconLabelItem icon="🔥" label={data.numberFireSectors} />
+      <IconLabelItem icon="📍" label={data.numberFireSectors} />
       <View
         style={{
-          marginVertical: SIZES.extralarge * 1.5,
+          marginVertical: SIZES.extralarge * 0.5,
         }}
       >
         <Text
@@ -41,7 +41,7 @@ const DetailsDesc = ({ data }) => {
         >
           Description
         </Text>
-        <View style={{ marginTop: SIZES.base }}>
+        <View style={{ marginTop: SIZES.base}}>
           <Text
             style={{
               fontSize: SIZES.small,

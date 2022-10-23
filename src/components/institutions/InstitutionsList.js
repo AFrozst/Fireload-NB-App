@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, Alert } from "react-native";
+import { FlatList, Alert, View } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import InstitutionItem from "./InstitutionItem";
 import HomeHeader from "../common/HomeHeader";
 import Loading from "../common/Loading";
 import NotFound from "../common/NotFound";
+import BannerImage from "../common/BannerImage";
+import { LayoutContainer } from "../../layouts";
+import { assets, COLORS } from "../../constants";
 
 import { getInstitutions, deleteInstitution } from "../../services/institution";
 
@@ -72,16 +75,33 @@ const InstitutionsList = ({ navigation }) => {
   }
 
   return (
-    <FlatList
-      data={institutions}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      showsVerticalScrollIndicator={true}
-      onRefresh={loadInstitutions}
-      refreshing={false}
-      ListHeaderComponent={<HomeHeader />}
-      style={{ width: "100%" }}
-    />
+    <>
+      {institutions.length > 0 ? (
+        <FlatList
+          data={institutions}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={true}
+          onRefresh={loadInstitutions}
+          refreshing={false}
+          ListHeaderComponent={<HomeHeader />}
+          style={{ width: "100%" }}
+        />
+      ) : (
+        <LayoutContainer style={{ padding: 0}}>
+          <HomeHeader />
+          <View style={{backgroundColor: COLORS.white, paddingVertical: 40}}>
+            <BannerImage
+              image={assets.emptyData}
+              title="No hay instituciones"
+              subtitle="Agrega una institución para comenzar"
+              width={300}
+              height={300}
+            />
+          </View>
+        </LayoutContainer>
+      )}
+    </>
   );
 };
 

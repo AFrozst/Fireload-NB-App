@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { FIRE_SECTOR_DETAIL_SCREEN } from "../../constants/routes/names";
 
 const FireSectorItem = ({ fireSector }) => {
   const navigation = useNavigation();
@@ -11,7 +12,7 @@ const FireSectorItem = ({ fireSector }) => {
       <TouchableOpacity
         //onPress={() => console.log(fireSector.id)}
         onPress={() =>
-          navigation.navigate("Fire Sector Detail Screen", {
+          navigation.navigate(FIRE_SECTOR_DETAIL_SCREEN, {
             data: fireSector,
           })
         }

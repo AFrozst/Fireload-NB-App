@@ -7,6 +7,11 @@ import {
   RectButtonArrow,
 } from "../components";
 import { COLORS, assets } from "../constants";
+import {
+  INSTITUTIONS_SCREEN,
+  INFORMATION_SCREEN,
+  REPORTS_SCREEN,
+} from "../constants/routes/names";
 
 const Home = ({ navigation }) => {
   return (
@@ -28,15 +33,15 @@ const Home = ({ navigation }) => {
             title="Tus Estudios"
             minWidth={100}
             fontSize={16}
-            handlePress={() => navigation.navigate("Institutions")}
+            handlePress={() => navigation.navigate(INSTITUTIONS_SCREEN)}
           />
           <RectButtonArrow
             title="Informacion General"
-            handlePress={() => navigation.navigate("Information")}
+            handlePress={() => navigation.navigate(INFORMATION_SCREEN)}
           />
           <RectButtonArrow
             title="Elaborar Reporte"
-            handlePress={() => navigation.navigate("Reports")}
+            handlePress={() => navigation.navigate(REPORTS_SCREEN)}
           />
           <RectButtonArrow
             title="Equipos de Extinción"

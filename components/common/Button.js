@@ -1,5 +1,12 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Image,
+  View,
+  ActivityIndicator,
+} from "react-native";
 import { COLORS, SIZES, FONTS, SHADOWS } from "../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -124,6 +131,59 @@ export const AddButton = ({ handlePress, ...props }) => {
   );
 };
 
+export const CustomButton = ({
+  title,
+  disabled,
+  loading,
+  onPress,
+  secondary,
+  primary,
+  danger,
+  style,
+}) => {
+  const getBgColor = () => {
+    if (disabled) {
+      return COLORS.gray;
+    }
+
+    if (primary) {
+      return COLORS.primary;
+    }
+    if (danger) {
+      return COLORS.danger;
+    }
+    if (secondary) {
+      return COLORS.secondary;
+    }
+  };
+
+  return (
+    <TouchableOpacity
+      disabled={disabled}
+      onPress={onPress}
+      style={[styles.wrapper, { backgroundColor: getBgColor() }, style]}
+    >
+      <View style={[styles.loaderSection]}>
+        {loading && (
+          <ActivityIndicator
+            color={primary ? COLORS.secondary : COLORS.primary}
+          />
+        )}
+        {title && (
+          <Text
+            style={{
+              color: disabled ? "black" : COLORS.white,
+              paddingLeft: loading ? 5 : 0,
+            }}
+          >
+            {loading ? "Espere por favor..." : title}
+          </Text>
+        )}
+      </View>
+    </TouchableOpacity>
+  );
+};
+
 const styles = StyleSheet.create({
   RecButton: {
     backgroundColor: COLORS.primary,
@@ -135,5 +195,26 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontWeight: "bold",
     textAlign: "center",
+  },
+
+  wrapper: {
+    height: 42,
+    paddingHorizontal: 5,
+    marginVertical: 5,
+    borderRadius: 4,
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+  loaderSection: {
+    flexDirection: "row",
+  },
+  textInput: {
+    flex: 1,
+    width: "100%",
+  },
+  error: {
+    color: COLORS.danger,
+    paddingTop: 4,
+    fontSize: 12,
   },
 });

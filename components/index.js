@@ -1,5 +1,11 @@
 import FocusedStatusBar from "./common/FocusedStatusBar";
-import { RectButton, CircleButton, RectButtonArrow, AddButton } from "./common/Button";
+import {
+  RectButton,
+  CircleButton,
+  RectButtonArrow,
+  AddButton,
+  CustomButton,
+} from "./common/Button";
 import HomeHeader from "./common/HomeHeader";
 import Loading from "./common/Loading";
 import NotFound from "./common/NotFound";
@@ -13,6 +19,9 @@ import FireSectorsList from "./fireSectors/FireSectorsList";
 import InstitutionCard from "./others/InstitutionCard";
 import HeaderFireSector from "./materials/Header";
 import MaterialsList from "./materials/MaterialsList";
+import LoginComponet from "./auth/LoginComponet";
+import RegisterComponent from "./auth/RegisterComponent";
+import Message from "./common/Message";
 
 export {
   FocusedStatusBar,
@@ -34,4 +43,8 @@ export {
   InstitutionCard,
   HeaderFireSector,
   MaterialsList,
+  CustomButton,
+  LoginComponet,
+  RegisterComponent,
+  Message,
 };

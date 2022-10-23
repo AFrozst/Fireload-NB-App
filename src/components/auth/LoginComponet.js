@@ -8,6 +8,7 @@ import { COLORS, assets, SIZES, FONTS } from "../../constants";
 import { REGISTER } from "../../constants/routes/names";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Message from "../common/Message";
+import FocusedStatusBar from "../common/FocusedStatusBar";
 
 const LoginComponet = ({
   form,
@@ -23,6 +24,8 @@ const LoginComponet = ({
 
   return (
     <LayoutContainer>
+      <FocusedStatusBar barStyle="dark-content" backgroundColor="transparent" />
+
       <Image
         height={100}
         width={100}
@@ -32,7 +35,9 @@ const LoginComponet = ({
 
       <View>
         <Text style={styles.title}>Bienvenido a Fireload NB App</Text>
-        <Text style={styles.subTitle}>Inicia sesión para seguir trabajando</Text>
+        <Text style={styles.subTitle}>
+          Inicia sesión para seguir trabajando
+        </Text>
 
         <View style={styles.form}>
           {justSignedUp && (

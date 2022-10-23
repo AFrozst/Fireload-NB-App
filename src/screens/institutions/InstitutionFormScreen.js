@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Layout } from "../../layouts";
-import { BannerImage, RectButton, Input } from "../../components";
+import {
+  BannerImage,
+  RectButton,
+  Input,
+  FocusedStatusBar,
+} from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
 import { saveInstitution, updateInstitution } from "../../services/institution";
@@ -42,6 +47,11 @@ const InstitutionFormScreen = ({ navigation, route }) => {
 
   return (
     <Layout>
+      <FocusedStatusBar
+        barStyle="light-content"
+        backgroundColor={COLORS.primary}
+      />
+
       <ScrollView
         style={styles.container}
         showsVerticalScrollIndicator={false}

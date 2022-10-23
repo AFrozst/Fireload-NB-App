@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import { LayoutScroll } from "../../layouts";
-import { BannerImage, RectButton, Input } from "../../components";
+import { BannerImage, RectButton, Input, FocusedStatusBar } from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
 import SelectList from "react-native-dropdown-select-list";
@@ -90,6 +90,11 @@ const MaterialFormScreen = ({ navigation, route }) => {
         justifyContent: "center",
       }}
     >
+      <FocusedStatusBar
+        barStyle="light-content"
+        backgroundColor={COLORS.primary}
+      />
+
       <BannerImage
         image={assets.addMaterial}
         title="Agregar Material"

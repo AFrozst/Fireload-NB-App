@@ -7,6 +7,9 @@ import invoice from "../assets/images/Invoice-image.png";
 import newInstitution from "../assets/images/New-Institution.png";
 import newFireSector from "../assets/images/New-Fire-Sector.png";
 import addMaterial from "../assets/images/AddMaterial.png";
+import logo from "../assets/images/logo.png";
+import register from "../assets/images/register.png";
+import login from "../assets/images/login.png";
 
 export default {
   left,
@@ -17,4 +20,7 @@ export default {
   newInstitution,
   newFireSector,
   addMaterial,
+  logo,
+  register,
+  login,
 };

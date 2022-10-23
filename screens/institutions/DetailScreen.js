@@ -6,6 +6,7 @@ import {
   FireSectorsList,
 } from "../../components";
 import { COLORS, SIZES, SHADOWS } from "../../constants";
+import { FIRE_SECTOR_FORM_SCREEN } from "../../constants/routes/names";
 
 const DetailScreen = ({ route, navigation }) => {
   const isLoading = true;
@@ -32,9 +33,11 @@ const DetailScreen = ({ route, navigation }) => {
           minWidth={170}
           fontSize={SIZES.large}
           color={COLORS.primary}
-          handlePress={() => navigation.navigate("Fire Sector Form Screen", {
-            idInstitution: institution.id,
-            })}
+          handlePress={() =>
+            navigation.navigate(FIRE_SECTOR_FORM_SCREEN, {
+              idInstitution: institution.id,
+            })
+          }
           {...SHADOWS.dark}
         />
       </View>

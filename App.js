@@ -1,6 +1,9 @@
 import "react-native-gesture-handler";
 import Navigation from "./navigation/Navigation";
+import AppNavContainer from "./navigation/AppNavContainer";
 import { useFonts } from "expo-font";
+import { AppLoading } from "expo";
+import GlobalProvider from "./context/Provider";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -13,5 +16,11 @@ export default function App() {
 
   if (!loaded) return null;
 
-  return <Navigation />;
+  // return <Navigation />;
+
+  return (
+    <GlobalProvider>
+      <AppNavContainer />
+    </GlobalProvider>
+  );
 }

@@ -9,7 +9,7 @@ export const COLORS = {
   white: "#FFFFFF",
   black: "#000000",
   textGray: "#4D626C",
-  danger: "#FF0000",
+  danger: "#F72585",
   focusText: "#10AC84",
 };
 

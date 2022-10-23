@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { assets } from "../../constants";
+import { INSTITUTION_DETAIL_SCREEN } from "../../constants/routes/names";
 
 const InstitutionCard = ({ institution }) => {
   // Para evitar pasar como parametro la varibale nabivgation usaremos useNavigation
@@ -12,7 +13,7 @@ const InstitutionCard = ({ institution }) => {
     <View style={styles.itemContainer}>
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate("Institution Detail Screen", {
+          navigation.navigate(INSTITUTION_DETAIL_SCREEN, {
             data: institution,
           })
         }

@@ -3,6 +3,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { COLORS } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  INSTITUTION_LIST,
+  INSTITUTION_DETAIL_SCREEN,
+  FIRE_SECTOR_SCREEN,
+  FIRE_SECTOR_DETAIL_SCREEN,
+  INSTITUTION_FORM_SCREEN,
+  FIRE_SECTOR_FORM_SCREEN,
+  MATERIAL_FORM_SCREEN,
+} from "../../constants/routes/names";
 
 //Others
 import InstitutionScreen from "../../screens/InstitutionScreen";
@@ -23,7 +32,7 @@ const InstitutionsStackScreen = () => {
   return (
     <StackInstitution.Navigator>
       <StackInstitution.Screen
-        name="Institutions Screen"
+        name={INSTITUTION_LIST}
         component={InstitutionsScreen}
         //component={InstitutionScreen}
         options={({ navigation }) => ({
@@ -33,7 +42,7 @@ const InstitutionsStackScreen = () => {
           headerRight: () => (
             <TouchableOpacity
               style={{ marginRight: 10 }}
-              onPress={() => navigation.navigate("Institution Form Screen")}
+              onPress={() => navigation.navigate(INSTITUTION_FORM_SCREEN)}
             >
               <Ionicons
                 name="add-circle-sharp"
@@ -46,7 +55,7 @@ const InstitutionsStackScreen = () => {
       />
 
       <StackInstitution.Screen
-        name="Institution Detail Screen"
+        name={INSTITUTION_DETAIL_SCREEN}
         component={DetailScreen}
         //component={InstitutionDetailScreen}
         options={{
@@ -58,7 +67,7 @@ const InstitutionsStackScreen = () => {
       />
 
       <StackInstitution.Screen
-        name="Fire Sector Screen"
+        name={FIRE_SECTOR_SCREEN}
         component={FireSectorScreen}
         options={{
           title: "Detalle Sector de Fuego",
@@ -69,7 +78,7 @@ const InstitutionsStackScreen = () => {
       />
 
       <StackInstitution.Screen
-        name="Fire Sector Detail Screen"
+        name={FIRE_SECTOR_DETAIL_SCREEN}
         component={DetailFireSectorScreen}
         options={{
           title: "Detalle Sector de Fuego",
@@ -80,7 +89,7 @@ const InstitutionsStackScreen = () => {
       />
 
       <StackInstitution.Screen
-        name="Institution Form Screen"
+        name={INSTITUTION_FORM_SCREEN}
         component={InstitutionFormScreen}
         options={{
           title: "Registrar nueva Institución",
@@ -91,7 +100,7 @@ const InstitutionsStackScreen = () => {
       />
 
       <StackInstitution.Screen
-        name="Fire Sector Form Screen"
+        name={FIRE_SECTOR_FORM_SCREEN}
         component={FireSectorFormScreen}
         options={{
           title: "Nuevo Sector de Fuego",
@@ -102,7 +111,7 @@ const InstitutionsStackScreen = () => {
       />
 
       <StackInstitution.Screen
-        name="Material Form Screen"
+        name={MATERIAL_FORM_SCREEN}
         component={MaterialFormScreen}
         options={{
           title: "Añadir Material",

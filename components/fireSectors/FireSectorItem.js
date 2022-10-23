@@ -2,6 +2,10 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { IconLabelItem } from "../common/SubInfo";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
+import {
+  FIRE_SECTOR_DETAIL_SCREEN,
+  FIRE_SECTOR_FORM_SCREEN,
+} from "../../constants/routes/names";
 
 const FireSectorItem = ({
   idInstitution,
@@ -11,10 +15,10 @@ const FireSectorItem = ({
 }) => {
   const handlePress = () => {
     //navigation.navigate("Fire Sector Screen", { sector });
-    navigation.navigate("Fire Sector Detail Screen", { sector, idInstitution });
+    navigation.navigate(FIRE_SECTOR_DETAIL_SCREEN, { sector, idInstitution });
   };
   const handleEdit = () => {
-    navigation.navigate("Fire Sector Form Screen", { idInstitution, sector });
+    navigation.navigate(FIRE_SECTOR_FORM_SCREEN, { idInstitution, sector });
   };
 
   return (

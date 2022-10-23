@@ -3,16 +3,20 @@ import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 import { RectButton } from "../common/Button";
 import { TitleItem, IconLabelItem } from "../common/SubInfo";
+import {
+  INSTITUTION_DETAIL_SCREEN,
+  INSTITUTION_FORM_SCREEN,
+} from "../../constants/routes/names";
 
 const InstitutionItem = ({ institution, navigation, handleDelete }) => {
   const handlePress = () => {
-    navigation.navigate("Institution Detail Screen", {
+    navigation.navigate(INSTITUTION_DETAIL_SCREEN, {
       institution: institution,
     });
   };
 
   const handleEdit = () => {
-    navigation.navigate("Institution Form Screen", {
+    navigation.navigate(INSTITUTION_FORM_SCREEN, {
       institution: institution,
     });
   };

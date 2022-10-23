@@ -18,6 +18,7 @@ import {
 
 import { assets, SIZES, FONTS, COLORS, SHADOWS } from "../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MATERIAL_FORM_SCREEN } from "../../constants/routes/names";
 
 const FireSectorScreen = ({ navigation, route }) => {
   console.log("================= FIRE SECTOR SCREEN ===================");
@@ -45,7 +46,7 @@ const FireSectorScreen = ({ navigation, route }) => {
       </Layout>
 
       <AddButton
-        handlePress={() => navigation.navigate("Material Form Screen", {
+        handlePress={() => navigation.navigate(MATERIAL_FORM_SCREEN, {
           sectorId: fireSector ? fireSector.id : null,
           institutionId: idInstitution,
           })}

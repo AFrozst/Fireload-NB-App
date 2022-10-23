@@ -3,6 +3,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../constants";
+import {
+  HOME_FIRELOAD,
+  INSTITUTIONS_SCREEN,
+  INFORMATION_SCREEN,
+  REPORTS_SCREEN,
+} from "../constants/routes/names";
 
 // Screens
 import Home from "../screens/Home";
@@ -18,7 +24,7 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName={HOME_FIRELOAD}
       screenOptions={{
         tabBarActiveTintColor: COLORS.quaternary,
         tabBarInactiveTintColor: COLORS.white,
@@ -28,7 +34,7 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name={HOME_FIRELOAD}
         component={Home}
         options={{
           title: "Fireoad NB",
@@ -44,7 +50,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Institutions"
+        name={INSTITUTIONS_SCREEN}
         component={InstitutionsStackScreen}
         options={{
           tabBarLabel: "Estudios",
@@ -60,7 +66,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Information"
+        name={INFORMATION_SCREEN}
         component={InformationScreen}
         options={{
           tabBarLabel: "Información",
@@ -76,7 +82,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Reports"
+        name={REPORTS_SCREEN}
         component={ReportsScreen}
         options={{
           tabBarLabel: "Reportes",

@@ -6,7 +6,6 @@ import HomeHeader from "../common/HomeHeader";
 import Loading from "../common/Loading";
 import NotFound from "../common/NotFound";
 
-//import { InstitutionsData } from "../../constants";
 import { getInstitutions, deleteInstitution } from "../../services/institution";
 
 const InstitutionsList = ({ navigation }) => {
@@ -19,7 +18,6 @@ const InstitutionsList = ({ navigation }) => {
     try {
       const dataApi = await getInstitutions();
       setInstitutions(dataApi.data);
-      //setInstitutions(InstitutionsData);
       setIsLoading(false);
     } catch (error) {
       console.log(error);

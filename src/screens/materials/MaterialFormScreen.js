@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
-import { LayoutScroll, Layout } from "../../layouts";
+import { LayoutScroll } from "../../layouts";
 import { BannerImage, RectButton, Input } from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 

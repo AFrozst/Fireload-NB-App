@@ -5,10 +5,8 @@ import { assets } from "../../constants";
 import { INSTITUTION_DETAIL_SCREEN } from "../../constants/routes/names";
 
 const InstitutionCard = ({ institution }) => {
-  // Para evitar pasar como parametro la varibale nabivgation usaremos useNavigation
   const navigation = useNavigation();
 
-  // Para editar usaremos el mismo form de crear, pero le pasaremos parametros extra como el ID del ITEM
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity

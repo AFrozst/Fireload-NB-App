@@ -1,9 +1,9 @@
 import "react-native-gesture-handler";
-import Navigation from "./navigation/Navigation";
-import AppNavContainer from "./navigation/AppNavContainer";
+import Navigation from "./src/navigation/Navigation";
+import AppNavContainer from "./src/navigation/AppNavContainer";
 import { useFonts } from "expo-font";
 import { AppLoading } from "expo";
-import GlobalProvider from "./context/Provider";
+import GlobalProvider from "./src/context/Provider";
 
 export default function App() {
   const [loaded] = useFonts({

@@ -6,17 +6,11 @@ import { Ionicons } from "@expo/vector-icons";
 import {
   INSTITUTION_LIST,
   INSTITUTION_DETAIL_SCREEN,
-  FIRE_SECTOR_SCREEN,
   FIRE_SECTOR_DETAIL_SCREEN,
   INSTITUTION_FORM_SCREEN,
   FIRE_SECTOR_FORM_SCREEN,
   MATERIAL_FORM_SCREEN,
 } from "../../constants/routes/names";
-
-//Others
-import InstitutionScreen from "../../screens/InstitutionScreen";
-import InstitutionDetailScreen from "../../screens/InstitutionDetailScreen";
-import FireSectorScreen from "../../screens/FireSectorScreen";
 
 //True Screens
 import InstitutionsScreen from "../../screens/institutions/InstitutionsScreen";
@@ -60,17 +54,6 @@ const InstitutionsStackScreen = () => {
         //component={InstitutionDetailScreen}
         options={{
           title: "Detalle de la Institución",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
-        }}
-      />
-
-      <StackInstitution.Screen
-        name={FIRE_SECTOR_SCREEN}
-        component={FireSectorScreen}
-        options={{
-          title: "Detalle Sector de Fuego",
           headerStyle: { backgroundColor: COLORS.primary },
           headerTitleStyle: { color: COLORS.white },
           headerTintColor: COLORS.white,

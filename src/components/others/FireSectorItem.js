@@ -10,7 +10,6 @@ const FireSectorItem = ({ fireSector }) => {
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity
-        //onPress={() => console.log(fireSector.id)}
         onPress={() =>
           navigation.navigate(FIRE_SECTOR_DETAIL_SCREEN, {
             data: fireSector,

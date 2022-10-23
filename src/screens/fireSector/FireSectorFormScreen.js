@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Layout } from "../../layouts";
-import { BannerImage, RectButton, Input } from "../../components";
+import {
+  BannerImage,
+  RectButton,
+  Input,
+  FocusedStatusBar,
+} from "../../components";
 import { COLORS, SIZES, assets } from "../../constants";
 
 const {
@@ -58,6 +63,11 @@ const FireSectorFormScreen = ({ navigation, route }) => {
 
   return (
     <Layout>
+      <FocusedStatusBar
+        barStyle="light-content"
+        backgroundColor={COLORS.primary}
+      />
+
       <ScrollView
         style={styles.container}
         showsVerticalScrollIndicator={false}

@@ -1,9 +1,9 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../constants";
 
 const Layout = ({ children }) => {
-  return <View style={styles.container}>{children}</View>;
+  return <SafeAreaView style={styles.container}>{children}</SafeAreaView>;
 };
 
 const styles = StyleSheet.create({

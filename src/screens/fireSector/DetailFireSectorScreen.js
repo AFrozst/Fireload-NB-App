@@ -21,6 +21,7 @@ const FireSectorScreen = ({ navigation, route }) => {
         barStyle="light-content"
         backgroundColor={COLORS.primary}
       />
+
       {fireSector && <HeaderFireSector sector={fireSector} />}
       <Layout>
         <MaterialsList

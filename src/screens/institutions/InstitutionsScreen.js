@@ -10,6 +10,7 @@ const InstitutionsScreen = ({ navigation }) => {
         barStyle="light-content"
         backgroundColor={COLORS.primary}
       />
+
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1, zIndex: 0 }}>
           <InstitutionsList navigation={navigation} />

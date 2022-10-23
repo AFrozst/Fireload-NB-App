@@ -2,10 +2,19 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { COLORS, SIZES, FONTS } from "../../constants";
 
-const BannerImage = ({ image, title, subtitle }) => {
+const BannerImage = ({ image, title, subtitle, width, height }) => {
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} />
+      <Image
+        source={image}
+        style={[
+          styles.image,
+          {
+            width: width || 200,
+            height: height || 200,
+          },
+        ]}
+      />
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>
     </View>

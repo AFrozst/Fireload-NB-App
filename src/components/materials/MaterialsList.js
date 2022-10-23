@@ -68,11 +68,19 @@ const MaterialsList = ({ sectorId, institutionId }) => {
       contentContainerStyle={{ paddingBottom: SIZES.extralarge * 3 }}
       ListHeaderComponent={() => (
         <View style={{ paddingTop: SIZES.font }}>
-          <Text
-            style={{ fontSize: SIZES.font, fontFamily: FONTS.InterSemiBold }}
-          >
-            Materiales Combustibles
-          </Text>
+          {materials.length === 0 ? (
+            <Text
+              style={{ fontSize: SIZES.font, fontFamily: FONTS.InterSemiBold }}
+            >
+              No hay materiales registrados
+            </Text>
+          ) : (
+            <Text
+              style={{ fontSize: SIZES.font, fontFamily: FONTS.InterSemiBold }}
+            >
+              Materiales Combustibles
+            </Text>
+          )}
         </View>
       )}
     />

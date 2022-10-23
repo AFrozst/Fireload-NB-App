@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { SETTINGS } from "../../constants/routes/names";
-import { COLORS, FONTS, assets } from "../../constants";
+import { COLORS, assets } from "../../constants";
 import { LayoutContainer } from "../../layouts";
 import logoutUser from "../../context/actions/auth/logoutUser";
 import { MaterialCommunityIcons } from "@expo/vector-icons";

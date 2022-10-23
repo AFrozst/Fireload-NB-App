@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { Layout } from "../../layouts";
 import { BannerImage, RectButton, Input } from "../../components";
-import { COLORS, SIZES, FONTS, assets } from "../../constants";
+import { COLORS, SIZES, assets } from "../../constants";
 
 const {
   saveFireSector,

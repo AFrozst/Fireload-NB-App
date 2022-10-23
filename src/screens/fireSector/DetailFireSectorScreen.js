@@ -1,35 +1,19 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import { LayoutScroll, Layout } from "../../layouts";
+import React, { useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { Layout } from "../../layouts";
 import {
   FocusedStatusBar,
-  NotFound,
   HeaderFireSector,
   MaterialsList,
   AddButton,
 } from "../../components";
 
-import { assets, SIZES, FONTS, COLORS, SHADOWS } from "../../constants";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { COLORS } from "../../constants";
 import { MATERIAL_FORM_SCREEN } from "../../constants/routes/names";
 
 const FireSectorScreen = ({ navigation, route }) => {
-  console.log("================= FIRE SECTOR SCREEN ===================");
   const { sector, idInstitution } = route.params;
   const [fireSector, setFireSector] = useState(sector);
-
-  useEffect(() => {
-    console.log(
-      "====================Use Effect: Fire Sector===================="
-    );
-  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,10 +30,12 @@ const FireSectorScreen = ({ navigation, route }) => {
       </Layout>
 
       <AddButton
-        handlePress={() => navigation.navigate(MATERIAL_FORM_SCREEN, {
-          sectorId: fireSector ? fireSector.id : null,
-          institutionId: idInstitution,
-          })}
+        handlePress={() =>
+          navigation.navigate(MATERIAL_FORM_SCREEN, {
+            sectorId: fireSector ? fireSector.id : null,
+            institutionId: idInstitution,
+          })
+        }
         bottom={20}
         right={20}
       />

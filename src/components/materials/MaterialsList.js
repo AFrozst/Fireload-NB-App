@@ -53,7 +53,6 @@ const MaterialsList = ({ sectorId, institutionId }) => {
 
   useEffect(() => {
     loadData();
-    console.log("====================Use Effect: List====================");
   }, [isFocused]);
 
   if (isLoading) {

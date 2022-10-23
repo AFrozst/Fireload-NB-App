@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
+import { View, SafeAreaView, StyleSheet, ScrollView } from "react-native";
 import {
   FocusedStatusBar,
   HomeHeader,

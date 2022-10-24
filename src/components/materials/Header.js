@@ -6,19 +6,48 @@ const Header = ({ sector }) => {
   return (
     <View style={styles.container}>
       <View style={styles.infoContainer}>
-        <Text style={styles.title}>Descripcion: </Text>
-        <Text style={styles.secundary}>{sector.description}</Text>
+        {sector.name && (
+          <Text style={styles.title}>
+            {sector.name} ({sector.location})
+          </Text>
+        )}
+
+        {sector.environmentDescription && (
+          <Text style={styles.secundary}>
+            Descripcion del ambiente: {sector.environmentDescription}
+          </Text>
+        )}
+
+        {sector.activity && (
+          <Text style={styles.secundary}>Actividad: {sector.activity}</Text>
+        )}
+
+        {sector.occupation && (
+          <Text style={styles.secundary}>Ocupacion: {sector.occupation}</Text>
+        )}
+
+        {sector.typeFurniture && (
+          <Text style={styles.secundary}>
+            Tipo de mobiliaria: {sector.typeFurniture}
+          </Text>
+        )}
+
         <Text style={styles.title}>Observaciones: </Text>
         <Text style={styles.secundary}>{sector.observations}</Text>
       </View>
 
       <View style={styles.headerDataContainer}>
         <Text style={styles.title}>Area o Superficie: {sector.area} m2 </Text>
-        <Text style={styles.title}>Materiales o combustibles: 5</Text>
+        <Text style={styles.title}>
+          Materiales o combustibles: {sector.numberMaterials}
+        </Text>
+        <Text style={styles.title}>
+          Nivel de intrinseco: {sector.intrinsicLevel}
+        </Text>
       </View>
 
       <View style={styles.extraInfoContainer}>
-        <Text style={styles.extraInfoText}>Ra: 1.5 MODERADO</Text>
+        <Text style={styles.extraInfoText}>Ra: {sector.Ra} MODERADO</Text>
       </View>
     </View>
   );
@@ -26,7 +55,6 @@ const Header = ({ sector }) => {
 
 const styles = StyleSheet.create({
   container: {
-    
     backgroundColor: "#0F2C3C",
   },
   infoContainer: {
@@ -53,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#153F59",
   },
   extraInfoContainer: {
-    flexDirection: "row", 
+    flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "center",
     padding: SIZES.padding - 5,

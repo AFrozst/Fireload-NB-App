@@ -1,8 +1,20 @@
-import React from "react";
-import { Text, View, StyleSheet, Image, TextInput } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
 import { COLORS, FONTS, SIZES } from "../../constants";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HomeHeader = () => {
+  const [user, setUser] = useState(null);
+
+  const loadUser = async () => {
+    const user = await AsyncStorage.getItem("@user");
+    setUser(JSON.parse(user));
+  };
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={{ marginVertical: SIZES.font }}>
@@ -13,7 +25,7 @@ const HomeHeader = () => {
             color: COLORS.white,
           }}
         >
-          Hola, Allen 👋
+          Hola, {user?.name} {user?.lastName} 👋
         </Text>
 
         <Text

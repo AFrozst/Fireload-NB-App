@@ -29,11 +29,17 @@ const FireSectorItem = ({
         style={styles.imageIcon}
       />
       <View style={styles.informationContainer}>
-        <Text style={styles.title}>{sector.name}</Text>
-        <Text style={styles.date}>{sector.updatedAt}</Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>{sector.name} </Text>
+          <Text style={styles.locationText}> ({sector.location})</Text>
+        </View>
+
         <Text style={styles.date}>Area: {sector.area} m2</Text>
       </View>
-      <IconLabelItem icon="🔥" label={sector.totalFireload} />
+      <IconLabelItem
+        icon="🔥"
+        label={<Text>{sector.fireload}  </Text>}
+      />
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Ver</Text>
       </TouchableOpacity>
@@ -70,10 +76,20 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: SIZES.base,
   },
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   title: {
     fontFamily: FONTS.InterSemiBold,
     fontSize: SIZES.small,
     color: COLORS.primary,
+  },
+  locationText: {
+    fontFamily: FONTS.InterRegular,
+    fontSize: SIZES.small,
+    color: COLORS.primary,
+    fontStyle: "italic",
   },
   date: {
     fontFamily: FONTS.InterRegular,

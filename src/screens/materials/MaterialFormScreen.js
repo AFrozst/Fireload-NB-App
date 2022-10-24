@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import { LayoutScroll } from "../../layouts";
-import { BannerImage, RectButton, Input, FocusedStatusBar } from "../../components";
+import {
+  BannerImage,
+  RectButton,
+  Input,
+  FocusedStatusBar,
+} from "../../components";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
 import SelectList from "react-native-dropdown-select-list";
@@ -16,9 +21,10 @@ const MaterialFormScreen = ({ navigation, route }) => {
   const [data, setData] = useState([]);
   const [materialsAPI, setMaterialsAPI] = useState([]);
   const [material, setMaterial] = useState({
-    material_id: 0,
+    materialId: 0,
     weight: 0,
     heatValue: 0,
+    ci: 1.5,
   });
 
   const createSelectList = (data) => {
@@ -44,7 +50,7 @@ const MaterialFormScreen = ({ navigation, route }) => {
     const materialSelected = materialsAPI.find((item) => item.id === selected);
     setMaterial({
       ...material,
-      material_id: materialSelected.id,
+      materialId: materialSelected.id,
       heatValue: materialSelected.heatValue,
     });
   };
@@ -52,18 +58,29 @@ const MaterialFormScreen = ({ navigation, route }) => {
   const handleSummit = async () => {
     try {
       const sendObject = {
-        material_id: material.material_id,
+        materialId: material.materialId,
         weight: +material.weight,
-        totalCalorificValue: calculateTotalCalorificValue(),
+        total: calculateTotalCalorificValue(),
+        ci: +material.ci,
       };
-      const { response, status } = await addMaterial(
-        institutionId,
-        sectorId,
-        sendObject
-      );
-      if (status === 200) {
-        Alert.alert("Material registrado con éxito");
-        navigation.goBack();
+
+      if (sendObject.weight === 0 || sendObject.ci === 0 || selected === "") {
+        Alert.alert("Error", "No todos los campos estan llenos");
+        return;
+      } else {
+        const { response, status } = await addMaterial(
+          institutionId,
+          sectorId,
+          sendObject
+        );
+        if (status === 200) {
+          Alert.alert("Material registrado con éxito");
+          navigation.goBack();
+        }
+
+        if (status === 409) {
+          alert(response.error);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -85,11 +102,7 @@ const MaterialFormScreen = ({ navigation, route }) => {
   }, []);
 
   return (
-    <LayoutScroll
-      style={{
-        justifyContent: "center",
-      }}
-    >
+    <LayoutScroll>
       <FocusedStatusBar
         barStyle="light-content"
         backgroundColor={COLORS.primary}
@@ -129,6 +142,18 @@ const MaterialFormScreen = ({ navigation, route }) => {
             handleChanges("weight", value);
           }}
           keyboardType="numeric"
+          required
+        />
+
+        <Input
+          label="Ci"
+          placeholder="Ci"
+          value={material.ci.toString()}
+          onChangeText={(value) => {
+            handleChanges("ci", value);
+          }}
+          keyboardType="numeric"
+          required
         />
 
         <View style={styles.containerTotal}>

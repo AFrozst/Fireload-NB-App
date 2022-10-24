@@ -7,7 +7,6 @@ const LayoutScroll = ({ children }) => {
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
-        justifyContent="center"
       >
         {children}
       </ScrollView>

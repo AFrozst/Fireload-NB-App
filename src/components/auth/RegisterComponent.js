@@ -52,6 +52,17 @@ const RegisterComponent = ({
               onChange({ name: "name", value });
             }}
             error={errors.name || error?.name?.[0]}
+            required
+          />
+
+          <Input
+            label={"Apellido"}
+            placeholder={"Ingresa tu apellido"}
+            onChangeText={(value) => {
+              onChange({ name: "lastName", value });
+            }}
+            error={errors.lastName || error?.lastName?.[0]}
+            required
           />
 
           <Input
@@ -61,6 +72,7 @@ const RegisterComponent = ({
               onChange({ name: "email", value });
             }}
             error={errors.email || error?.email?.[0]}
+            required
           />
 
           <Input
@@ -95,6 +107,7 @@ const RegisterComponent = ({
               onChange({ name: "password", value });
             }}
             error={errors.password || error?.password?.[0]}
+            required
           />
 
           <CustomButton

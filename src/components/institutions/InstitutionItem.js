@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
-import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
+import { COLORS, SIZES, SHADOWS, assets, FONTS } from "../../constants";
 import { RectButton } from "../common/Button";
 import { TitleItem, IconLabelItem } from "../common/SubInfo";
 import {
@@ -9,6 +9,10 @@ import {
 } from "../../constants/routes/names";
 
 const InstitutionItem = ({ institution, navigation, handleDelete }) => {
+  const dateUpdate = new Date(institution.updatedAt).toLocaleDateString("es-ES");
+  const dateTime = new Date(institution.updatedAt).toLocaleTimeString("es-ES");
+  const date = `Ultima modificación: ${dateUpdate} ${dateTime}`;
+
   const handlePress = () => {
     navigation.navigate(INSTITUTION_DETAIL_SCREEN, {
       institution: institution,
@@ -38,10 +42,13 @@ const InstitutionItem = ({ institution, navigation, handleDelete }) => {
           <View style={styles.info}>
             <TitleItem
               title={institution.fullName}
-              subtitle={institution.createdAt}
+              subtitle={institution.location}
               titleSize={SIZES.large}
               subtitleSize={SIZES.small}
             />
+            <Text style={styles.dateText}>
+              {date}
+            </Text>
           </View>
         </View>
 
@@ -119,6 +126,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: SIZES.font,
+  },
+  dateText: {
+    color: COLORS.textGray,
+    fontSize: SIZES.small - 1,
+    fontFamily: FONTS.InterRegular,
   },
 });
 

@@ -10,6 +10,7 @@ const Input = ({
   placeholder,
   value,
   error,
+  required,
   style,
   ...props
 }) => {
@@ -31,7 +32,15 @@ const Input = ({
 
   return (
     <View style={styles.inputContainer}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        {label && <Text style={styles.label}>{label}</Text>}
+        {required && <Text style={styles.required}> *</Text>}
+      </View>
       <View
         style={[
           styles.wrapper,
@@ -40,7 +49,7 @@ const Input = ({
         ]}
       >
         {icon && <View style={styles.iconContainer}>{icon}</View>}
-        
+
         <TextInput
           style={[styles.input, style]}
           onChangeText={onChangeText}
@@ -89,6 +98,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 2,
+  },
+  required: {
+    color: COLORS.danger,
+    fontSize: SIZES.small,
+    fontFamily: FONTS.InterRegular,
   },
 });
 

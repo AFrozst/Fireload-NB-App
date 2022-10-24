@@ -16,6 +16,9 @@ const MaterliaItem = ({ material, handleDelete }) => {
           <Text style={[styles.text, styles.textSecondary]}>
             Peso: {material.Sector_Material.weight} kg
           </Text>
+          <Text style={[styles.text, styles.textSecondary]}>
+            Ci: {material.Sector_Material.ci}
+          </Text>
         </View>
 
         <TouchableOpacity
@@ -41,7 +44,7 @@ const MaterliaItem = ({ material, handleDelete }) => {
         <View style={styles.containerTotal}>
           <MaterialCommunityIcons name="fire" size={20} color="white" />
           <Text style={[styles.text, styles.fireloadData]}>
-            {material.Sector_Material.totalCalorificValue} Kcal
+            {material.Sector_Material.total} Kcal
           </Text>
         </View>
       </View>

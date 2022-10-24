@@ -12,7 +12,7 @@ export const clearAuthState = () => (dispatch) => {
   });
 };
 
-export default ({ name, email, password }) =>
+export default ({ name, lastName ,email, password }) =>
   (dispatch) =>
   (onSuccess) => {
     dispatch({
@@ -23,6 +23,7 @@ export default ({ name, email, password }) =>
       .post("/auth/register", {
         name,
         email,
+        lastName,
         password,
       })
       .then((res) => {

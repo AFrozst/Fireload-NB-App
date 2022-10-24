@@ -23,7 +23,6 @@ const BannerImage = ({ image, title, subtitle, width, height }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: COLORS.white,
     alignItems: "center",
     justifyContent: "center",

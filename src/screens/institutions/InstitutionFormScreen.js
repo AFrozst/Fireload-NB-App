@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Alert } from "react-native";
 import { Layout } from "../../layouts";
 import {
   BannerImage,
@@ -14,6 +14,7 @@ import { saveInstitution, updateInstitution } from "../../services/institution";
 const InstitutionFormScreen = ({ navigation, route }) => {
   const [institution, setInstitution] = useState({
     fullName: "",
+    location: "",
   });
   const [isEditing, setIsEditing] = useState(false);
 
@@ -24,12 +25,20 @@ const InstitutionFormScreen = ({ navigation, route }) => {
   const handleSummit = async () => {
     try {
       if (!isEditing) {
-        await saveInstitution(institution);
+        if (institution.fullName === "" || institution.location === "") {
+          Alert.alert("Error", "Todos los campos son obligatorios");
+        } else {
+          await saveInstitution(institution);
+          Alert.alert("Exito", "Institucion creada con exito");
+          navigation.navigate("Institutions");
+          navigation.goBack();
+        }
       } else {
         const id = route.params.institution.id;
         await updateInstitution(id, institution);
+        navigation.goBack();
       }
-      navigation.goBack();
+      
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +49,8 @@ const InstitutionFormScreen = ({ navigation, route }) => {
       setIsEditing(true);
       const { institution } = route.params;
       const name = institution.fullName;
-      setInstitution({ fullName: name });
+      const location = institution.location;
+      setInstitution({ fullName: name, location });
       navigation.setOptions({ headerTitle: "Editar la Institución" });
     }
   }, []);
@@ -69,7 +79,16 @@ const InstitutionFormScreen = ({ navigation, route }) => {
             placeholder="Nombre Completo"
             value={institution.fullName}
             onChangeText={(text) => handleChanges("fullName", text)}
-            //error = {"This field is required"}
+            underlineColorAndroid="transparent"
+            required
+          />
+
+          <Input
+            label="Ubicación"
+            placeholder="Ubicación"
+            value={institution.location}
+            onChangeText={(text) => handleChanges("location", text)}
+            required
             underlineColorAndroid="transparent"
           />
 

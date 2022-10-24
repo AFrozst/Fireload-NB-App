@@ -65,6 +65,12 @@ const RegisterScreen = () => {
       });
     }
 
+    if (form.lastName === undefined) {
+      setErrors((prev) => {
+        return { ...prev, lastName: "Por favor ingrese un apellido" };
+      });
+    }
+
     if (form.email === undefined) {
       setErrors((prev) => {
         return { ...prev, email: "Por favor ingrese un email" };
@@ -78,10 +84,11 @@ const RegisterScreen = () => {
     }
 
     if (
-      Object.values(form).length === 3 &&
+      Object.values(form).length === 4 &&
       Object.values(form).every((item) => item.trim().length > 0) &&
       Object.values(errors).every((item) => !item)
     ) {
+      console.log("form", form);
       register(form)(authDispatch)((response) => {
         navigate(LOGIN, { data: response });
       });

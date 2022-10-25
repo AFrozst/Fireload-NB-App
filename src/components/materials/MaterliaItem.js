@@ -4,7 +4,6 @@ import { SIZES, COLORS, FONTS } from "../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const MaterliaItem = ({ material, handleDelete }) => {
-
   return (
     <View style={styles.container}>
       <View style={styles.info}>
@@ -20,19 +19,6 @@ const MaterliaItem = ({ material, handleDelete }) => {
             Ci: {material.Sector_Material.ci}
           </Text>
         </View>
-
-        <TouchableOpacity
-          style={styles.delete}
-          onPress={() => {
-            handleDelete(material.id);
-          }}
-        >
-          <MaterialCommunityIcons
-            name="delete"
-            size={SIZES.font * 1.5}
-            color={COLORS.white}
-          />
-        </TouchableOpacity>
       </View>
 
       <View style={styles.containerFireloadData}>
@@ -48,6 +34,19 @@ const MaterliaItem = ({ material, handleDelete }) => {
           </Text>
         </View>
       </View>
+
+      <TouchableOpacity
+        style={styles.delete}
+        onPress={() => {
+          handleDelete(material.id);
+        }}
+      >
+        <MaterialCommunityIcons
+          name="delete"
+          size={SIZES.font * 1.5}
+          color={COLORS.white}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -59,7 +58,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#021D34",
     marginVertical: SIZES.padding - 5,
     borderRadius: 5,
-    padding: SIZES.padding,
+    paddingVertical: SIZES.padding,
+    paddingLeft: SIZES.padding,
+    paddingRight: SIZES.padding * 3,
     justifyContent: "space-between",
     alignItems: "center",
   },
@@ -102,7 +103,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     right: 0,
-    backgroundColor: COLORS.red,
     padding: 5,
     borderRadius: 5,
   },

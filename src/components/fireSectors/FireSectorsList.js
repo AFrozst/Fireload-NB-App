@@ -93,7 +93,7 @@ const FireSectorsList = ({ data, navigation }) => {
               ) : (
                 <View style={{ paddingTop: 15 }}>
                   <Text style={[styles.title, { textAlign: "center" }]}>
-                    No hay sectores de fuego registrados en esta institución
+                    No hay sectores de incendio registrados en esta institución
                   </Text>
                   <Text style={styles.subText}>Añade uno para comenzar</Text>
                 </View>

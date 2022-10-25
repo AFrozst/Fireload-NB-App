@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import { COLORS, SIZES, SHADOWS, assets, FONTS } from "../../constants";
 import { RectButton } from "../common/Button";
@@ -7,9 +7,15 @@ import {
   INSTITUTION_DETAIL_SCREEN,
   INSTITUTION_FORM_SCREEN,
 } from "../../constants/routes/names";
+import { ModalOptions } from "../common/MyModals";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const InstitutionItem = ({ institution, navigation, handleDelete }) => {
-  const dateUpdate = new Date(institution.updatedAt).toLocaleDateString("es-ES");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const dateUpdate = new Date(institution.updatedAt).toLocaleDateString(
+    "es-ES"
+  );
   const dateTime = new Date(institution.updatedAt).toLocaleTimeString("es-ES");
   const date = `Ultima modificación: ${dateUpdate} ${dateTime}`;
 
@@ -46,9 +52,19 @@ const InstitutionItem = ({ institution, navigation, handleDelete }) => {
               titleSize={SIZES.large}
               subtitleSize={SIZES.small}
             />
-            <Text style={styles.dateText}>
-              {date}
-            </Text>
+            <Text style={styles.dateText}>{date}</Text>
+          </View>
+          <View
+            style={{
+              justifyContent: "flex-start",
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => setIsModalOpen(true)}
+              style={styles.iconContainer}
+            >
+              <MaterialIcons name="more-vert" size={27} color="black" />
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -64,22 +80,19 @@ const InstitutionItem = ({ institution, navigation, handleDelete }) => {
             color={COLORS.quaternary}
             handlePress={handlePress}
           />
-          <RectButton
-            label="Editar"
-            minWidth={100}
-            fontSize={SIZES.base}
-            color="#F2C94C"
-            handlePress={handleEdit}
-          />
         </View>
       </View>
 
-      <TouchableOpacity
-        style={{ backgroundColor: "#ee5253", padding: 7, borderRadius: 5 }}
-        onPress={() => handleDelete(institution.id)}
-      >
-        <Text style={{ color: "#fff" }}>Delete</Text>
-      </TouchableOpacity>
+      <ModalOptions
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        title="Opciones Institucion"
+        titleEdit={"Editar Institucion"}
+        titleDelete={"Eliminar Institucion"}
+        description="¿Que desea hacer?"
+        onPressDelete={() => handleDelete(institution.id)}
+        onPressEdit={() => handleEdit()}
+      />
     </View>
   );
 };
@@ -100,6 +113,7 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: COLORS.primary,
     borderTopLeftRadius: SIZES.font,
+    borderTopRightRadius: SIZES.font,
     resizeMode: "cover",
   },
   logoImage: {
@@ -107,6 +121,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: SIZES.extralarge,
     backgroundColor: COLORS.white,
+    alignSelf: "center",
     ...SHADOWS.light,
   },
   itemContainerInfo: {
@@ -115,7 +130,6 @@ const styles = StyleSheet.create({
   },
   infortmationContainer: {
     flexDirection: "row",
-    alignItems: "center",
   },
   info: {
     flex: 1,
@@ -131,6 +145,13 @@ const styles = StyleSheet.create({
     color: COLORS.textGray,
     fontSize: SIZES.small - 1,
     fontFamily: FONTS.InterRegular,
+  },
+  iconContainer: {
+    width: 30,
+    height: 30,
+    borderRadius: SIZES.base,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

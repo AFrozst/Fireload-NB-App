@@ -64,7 +64,7 @@ const InstitutionsStackScreen = () => {
         name={FIRE_SECTOR_DETAIL_SCREEN}
         component={DetailFireSectorScreen}
         options={{
-          title: "Detalle Sector de Fuego",
+          title: "Detalle Sector de Incendio",
           headerStyle: { backgroundColor: COLORS.primary },
           headerTitleStyle: { color: COLORS.white },
           headerTintColor: COLORS.white,
@@ -86,7 +86,7 @@ const InstitutionsStackScreen = () => {
         name={FIRE_SECTOR_FORM_SCREEN}
         component={FireSectorFormScreen}
         options={{
-          title: "Nuevo Sector de Fuego",
+          title: "Nuevo Sector de Incendio",
           headerStyle: { backgroundColor: COLORS.primary },
           headerTitleStyle: { color: COLORS.white },
           headerTintColor: COLORS.white,

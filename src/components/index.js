@@ -22,6 +22,9 @@ import MaterialsList from "./materials/MaterialsList";
 import LoginComponet from "./auth/LoginComponet";
 import RegisterComponent from "./auth/RegisterComponent";
 import Message from "./common/Message";
+import UDcomponent from "./common/UDcomponent";
+import { ViewBlocked, ViewBlockedPressable } from "./common/ViewBlocked";
+import { ModalOptions, ModalBottomSheet } from "./common/MyModals";
 
 export {
   FocusedStatusBar,
@@ -47,4 +50,9 @@ export {
   LoginComponet,
   RegisterComponent,
   Message,
+  UDcomponent,
+  ViewBlocked,
+  ViewBlockedPressable,
+  ModalOptions,
+  ModalBottomSheet,
 };

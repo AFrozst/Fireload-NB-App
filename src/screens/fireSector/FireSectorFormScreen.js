@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, ScrollView, Image } from "react-native";
+import { View, StyleSheet, ScrollView, Image, Alert } from "react-native";
 import { Layout } from "../../layouts";
 import {
   BannerImage,
@@ -58,7 +58,7 @@ const FireSectorFormScreen = ({ navigation, route }) => {
         } else {
           const id = route.params.sector.id;
           await updateFireSector(idInstitution, id, fireSector);
-          alert("Sector actualizado con exito");
+          Alert.alert("Sector actualizado", "Sector actualizado con exito");
           navigation.goBack();
         }
       }
@@ -102,7 +102,7 @@ const FireSectorFormScreen = ({ navigation, route }) => {
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <BannerImage
           image={assets.newFireSector}
-          title="Registro de Sector de Fuego"
+          title="Registro de Sector de Incendio"
           subtitle="Llena los campos para registrar un nuevo sector"
         />
 

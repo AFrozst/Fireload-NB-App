@@ -6,11 +6,17 @@ const Header = ({ sector }) => {
   return (
     <View style={styles.container}>
       <View style={styles.infoContainer}>
-        {sector.name && (
-          <Text style={styles.title}>
-            {sector.name} ({sector.location})
-          </Text>
-        )}
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          {sector.name && <Text style={styles.title}>{sector.name}</Text>}
+          {sector.location && (
+            <Text style={styles.locationText}> ({sector.location})</Text>
+          )}
+        </View>
 
         {sector.environmentDescription && (
           <Text style={styles.secundary}>
@@ -32,8 +38,11 @@ const Header = ({ sector }) => {
           </Text>
         )}
 
-        <Text style={styles.title}>Observaciones: </Text>
-        <Text style={styles.secundary}>{sector.observations}</Text>
+        {sector.observaciones && (
+          <Text style={styles.secundary}>
+            Observaciones: {sector.observaciones}
+          </Text>
+        )}
       </View>
 
       <View style={styles.headerDataContainer}>
@@ -90,6 +99,12 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: SIZES.small,
     fontFamily: FONTS.InterLight,
+    fontStyle: "italic",
+  },
+  locationText: {
+    color: COLORS.white,
+    fontSize: SIZES.font,
+    fontFamily: FONTS.InterRegular,
     fontStyle: "italic",
   },
 });

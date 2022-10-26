@@ -55,10 +55,18 @@ const FireSectorItem = ({
             marginHorizontal: 10,
           }}
         >
-          <IconLabelItem
-            icon="🔥"
-            label={<Text>{sector.fireload} Mcal/kg </Text>}
-          />
+          {sector.fireload !== null && sector.fireload !== 0 ? (
+            <IconLabelItem
+              icon="🔥"
+              label={
+                <Text>
+                  {sector.fireload.toFixed(2).replace(".", ",")} Mcal/m2{" "}
+                </Text>
+              }
+            />
+          ) : (
+            <IconLabelItem icon="🔥" label={<Text>{0} Mcal/m2 </Text>} />
+          )}
         </View>
 
         <TouchableOpacity

@@ -6,7 +6,7 @@ import { COLORS, SIZES, FONTS } from "../../constants";
 const DetailsDesc = ({ data }) => {
   const dateUpdate = new Date(data.updatedAt).toLocaleDateString("es-ES");
   const dateTime = new Date(data.updatedAt).toLocaleTimeString("es-ES");
-  const date = `Ultima modificación: ${dateUpdate} ${dateTime}`;
+  const date = `${dateUpdate} ${dateTime}`;
 
   return (
     <>

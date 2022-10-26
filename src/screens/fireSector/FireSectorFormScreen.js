@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, ScrollView, Image, Alert } from "react-native";
+import { View, StyleSheet, ScrollView, Alert, Text } from "react-native";
 import { Layout } from "../../layouts";
 import {
   BannerImage,
@@ -7,7 +7,8 @@ import {
   Input,
   FocusedStatusBar,
 } from "../../components";
-import { COLORS, SIZES, assets } from "../../constants";
+import SelectList from "react-native-dropdown-select-list";
+import { COLORS, SIZES, assets, FONTS } from "../../constants";
 
 const {
   saveFireSector,
@@ -25,10 +26,34 @@ const FireSectorFormScreen = ({ navigation, route }) => {
     typeFurniture: "",
     occupation: "",
     observations: "",
-    Ra: 1.5,
-    intrinsicLevel: "BAJO (1)",
+    Ra: "",
   });
   const [isEditing, setIsEditing] = useState(false);
+  const [selected, setSelected] = useState("");
+
+  const raData = [
+    { key: 1, value: "1" },
+    { key: 2, value: "1.5" },
+    { key: 3, value: "3" },
+  ];
+
+  const getLevel = (ra) => {
+    switch (ra) {
+      case 1:
+        return "BAJO";
+      case 1.5:
+        return "MEDIO";
+      case 3:
+        return "ALTO";
+      default:
+        return "";
+    }
+  };
+
+  const handleRaChanges = () => {
+    const ravalue = raData.find((item) => item.key === selected);
+    setFireSector({ ...fireSector, Ra: ravalue.value });
+  };
 
   const handleChanges = (name, value) => {
     setFireSector({ ...fireSector, [name]: value });
@@ -42,7 +67,7 @@ const FireSectorFormScreen = ({ navigation, route }) => {
           fireSector.area === 0 ||
           fireSector.Ra === ""
         ) {
-          alert("Hay campos obligatorios vacios. Por favor, verifique");
+          Alert.alert("Campos vacios", "Por favor llene los campos con *");
         } else {
           await saveFireSector(idInstitution, fireSector);
           alert("Sector creado con exito");
@@ -82,7 +107,6 @@ const FireSectorFormScreen = ({ navigation, route }) => {
         occupation: sector.occupation,
         observations: sector.observations,
         Ra: sector.Ra.toString(),
-        intrinsicLevel: sector.intrinsicLevel,
       };
       setFireSector(setorUpdate);
       navigation.setOptions({ headerTitle: "Editar el Sector" });
@@ -168,14 +192,42 @@ const FireSectorFormScreen = ({ navigation, route }) => {
             onChangeText={(value) => handleChanges("observations", value)}
           />
 
-          <Input
-            label="Ra"
-            placeholder="Riesgo de Activación"
-            value={fireSector.Ra.toString()}
-            onChangeText={(value) => handleChanges("Ra", value)}
-            keyboardType="numeric"
-            required
-          />
+          <View style={styles.InputSelect}>
+            <Text style={styles.label}>Ra. Riesgo de Activacion *</Text>
+            {isEditing && (
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    marginLeft: 15,
+                  },
+                ]}
+              >
+                Ra Actual: {fireSector.Ra}
+              </Text>
+            )}
+            {fireSector.Ra !== "" && (
+              <Text
+                style={[
+                  styles.labelSecondary,
+                  {
+                    marginLeft: 15,
+                    marginBottom: 10,
+                  },
+                ]}
+              >
+                Nivel de Riesgo: ({getLevel(+fireSector.Ra)})
+              </Text>
+            )}
+
+            <SelectList
+              setSelected={setSelected}
+              data={raData}
+              onSelect={handleRaChanges}
+              placeholder="Selecciona el riesgo de activación"
+              search={false}
+            />
+          </View>
         </View>
         <View style={styles.buttonContainer}>
           {!isEditing ? (
@@ -222,6 +274,20 @@ const styles = StyleSheet.create({
     width: 200,
     alignSelf: "center",
     marginTop: 50,
+  },
+  InputSelect: {
+    flex: 1,
+    marginTop: SIZES.padding,
+  },
+  label: {
+    fontSize: SIZES.font,
+    fontFamily: FONTS.InterSemiBold,
+    color: COLORS.primary,
+  },
+  labelSecondary: {
+    fontSize: SIZES.small,
+    fontFamily: FONTS.InterRegular,
+    color: COLORS.textGray,
   },
 });
 

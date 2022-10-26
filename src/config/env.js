@@ -5,7 +5,7 @@ import {
   PROD_BACKEND_URL_LOCALHOST,
 } from "@env";
 
-const isLocalhost = true; // TODO: Change this to true when running locally
+const isLocalhost = false; // TODO: Change this to true when running locally
 
 const devEnvirontment = {
   BACKEND_URL: isLocalhost ? DEV_BACKEND_URL_LOCALHOST : DEV_BACKEND_URL,

@@ -76,7 +76,7 @@ const InstitutionsList = ({ navigation }) => {
 
   return (
     <>
-      {institutions.length > 0 ? (
+      {institutions?.length > 0 ? (
         <FlatList
           data={institutions}
           renderItem={renderItem}

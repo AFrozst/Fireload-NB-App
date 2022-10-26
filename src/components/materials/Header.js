@@ -48,15 +48,12 @@ const Header = ({ sector }) => {
       <View style={styles.headerDataContainer}>
         <Text style={styles.title}>Area o Superficie: {sector.area} m2 </Text>
         <Text style={styles.title}>
-          Materiales o combustibles: {sector.numberMaterials}
-        </Text>
-        <Text style={styles.title}>
           Nivel de intrinseco: {sector.intrinsicLevel}
         </Text>
       </View>
 
       <View style={styles.extraInfoContainer}>
-        <Text style={styles.extraInfoText}>Ra: {sector.Ra} MODERADO</Text>
+        <Text style={styles.extraInfoText}>Ra: {sector.Ra} </Text>
       </View>
     </View>
   );

@@ -76,7 +76,6 @@ const MaterialFormScreen = ({ navigation, route }) => {
         ci: +material.ciValue,
       };
 
-      console.log(sendObject);
       if (sendObject.weight === 0 || ciSelected === "" || selected === "") {
         Alert.alert("Error", "No todos los campos estan llenos");
         return;

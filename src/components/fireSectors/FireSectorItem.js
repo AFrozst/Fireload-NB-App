@@ -48,33 +48,36 @@ const FireSectorItem = ({
 
           <Text style={styles.date}>Area: {sector.area} m2</Text>
           <Text style={styles.date}>Materiales: {sector.numberMaterials}</Text>
-        </View>
-        <View
-          style={{
-            alignSelf: "center",
-            marginHorizontal: 10,
-          }}
-        >
-          {sector.fireload !== null && sector.fireload !== 0 ? (
-            <IconLabelItem
-              icon="🔥"
-              label={
-                <Text>
-                  {sector.fireload.toFixed(2).replace(".", ",")} Mcal/m2{" "}
-                </Text>
-              }
-            />
-          ) : (
-            <IconLabelItem icon="🔥" label={<Text>{0} Mcal/m2 </Text>} />
-          )}
+          <Text style={styles.date}>Ra: {sector.Ra}</Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setIsModalOpen(true)}
+        <View
+          style={{
+            backgroundColor: "rgba(0,0,0,0.1)",
+            padding: 6, 
+            borderRadius: 3,
+          }}
         >
-          <MaterialIcons name="more-vert" size={20} color={COLORS.primary} />
-        </TouchableOpacity>
+          <IconLabelItem
+            icon="🔥"
+            label={
+              <Text style={{
+                fontSize: SIZES.small,
+              }}>
+                {sector.fireload.toFixed(2).replace(".", ",")} Mcal/m2{" "}
+              </Text>
+            }
+          />
+        </View>
+
+        <View style={styles.containerOptions}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => setIsModalOpen(true)}
+          >
+            <MaterialIcons name="more-vert" size={20} color={COLORS.primary} />
+          </TouchableOpacity>
+        </View>
 
         <ModalOptions
           isModalOpen={isModalOpen}
@@ -86,6 +89,9 @@ const FireSectorItem = ({
           onPressDelete={() => handleDelete(sector.id)}
           onPressEdit={() => handleEdit()}
         />
+        <View style={styles.levelContainer}>
+          <Text style={styles.levelText}>{sector.intrinsicLevel}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -100,7 +106,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     marginVertical: SIZES.base,
-    paddingHorizontal: SIZES.base * 2,
+    paddingHorizontal: SIZES.base,
+    paddingVertical: SIZES.base,
+    borderRadius: 5,
+    backgroundColor: COLORS.tertiary,
   },
   imageIcon: {
     width: 48,
@@ -134,12 +143,35 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.tertiary,
     borderRadius: SIZES.base,
-    paddingVertical: SIZES.base / 2,
+    paddingVertical: SIZES.base,
+    paddingHorizontal: SIZES.base - 2,
   },
   buttonText: {
     fontFamily: FONTS.InterSemiBold,
     fontSize: SIZES.small,
     color: COLORS.white,
+  },
+  levelContainer: {
+    position: "absolute",
+    right: 0,
+    top: 0,
+    backgroundColor: COLORS.quaternary,
+    marginRight: SIZES.base,
+    marginTop: SIZES.base,
+    paddingHorizontal: 3,
+    paddingVertical: 2,
+    borderRadius: 5,
+  },
+  containerOptions: {
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  levelText: {
+    fontFamily: FONTS.InterSemiBold,
+    fontSize: SIZES.small - 3,
+    fontStyle: "italic",
+    color: COLORS.primary,
   },
 });
 

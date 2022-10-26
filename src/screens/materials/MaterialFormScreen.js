@@ -17,15 +17,23 @@ const MaterialFormScreen = ({ navigation, route }) => {
   const [institutionId, setInstitutionId] = useState(
     route.params.institutionId
   );
+
   const [selected, setSelected] = useState("");
+  const [ciSelected, setCiSelected] = useState("");
   const [data, setData] = useState([]);
   const [materialsAPI, setMaterialsAPI] = useState([]);
   const [material, setMaterial] = useState({
     materialId: 0,
     weight: 0,
     heatValue: 0,
-    ci: 1.5,
+    ciValue: 0,
   });
+
+  const ciData = [
+    { key: 1, value: "1" },
+    { key: 2, value: "1.2" },
+    { key: 3, value: "1.6" },
+  ];
 
   const createSelectList = (data) => {
     const selectList = data.map((item) => {
@@ -55,16 +63,21 @@ const MaterialFormScreen = ({ navigation, route }) => {
     });
   };
 
+  const handleCiChanges = () => {
+    const ciValue = ciData.find((item) => item.key === ciSelected);
+    setMaterial({ ...material, ciValue: ciValue.value });
+  };
+
   const handleSummit = async () => {
     try {
       const sendObject = {
         materialId: material.materialId,
         weight: +material.weight,
-        total: calculateTotalCalorificValue(),
-        ci: +material.ci,
+        ci: +material.ciValue,
       };
 
-      if (sendObject.weight === 0 || sendObject.ci === 0 || selected === "") {
+      console.log(sendObject);
+      if (sendObject.weight === 0 || ciSelected === "" || selected === "") {
         Alert.alert("Error", "No todos los campos estan llenos");
         return;
       } else {
@@ -123,12 +136,13 @@ const MaterialFormScreen = ({ navigation, route }) => {
             onSelect={handleListChanges}
             placeholder="Selecciona un material"
             searchPlaceholder="Buscar material"
+            maxHeight={150}
           />
 
           {selected != "" && (
             <View style={styles.containerMaterialInfo}>
               <Text style={styles.labelExtra}>
-                kcal/kg: {material.heatValue.toFixed(3).replace(".", ",")}{" "}
+                {material.heatValue.toFixed(2).replace(".", ",")} Mcal/kg
               </Text>
             </View>
           )}
@@ -145,21 +159,21 @@ const MaterialFormScreen = ({ navigation, route }) => {
           required
         />
 
-        <Input
-          label="Ci"
-          placeholder="Ci"
-          value={material.ci.toString()}
-          onChangeText={(value) => {
-            handleChanges("ci", value);
-          }}
-          keyboardType="numeric"
-          required
-        />
+        <View style={styles.InputSelect}>
+          <Text style={styles.label}>Ci. Grado de peligrosidad</Text>
+          <SelectList
+            setSelected={setCiSelected}
+            data={ciData}
+            onSelect={handleCiChanges}
+            placeholder="Selecciona un grado de peligrosidad"
+            searchPlaceholder="Buscar el grado de peligrosidad"
+          />
+        </View>
 
         <View style={styles.containerTotal}>
           <Text style={styles.textTotal}>Total Calorifico: </Text>
           <Text style={styles.textTotal}>
-            {calculateTotalCalorificValue().toFixed(3).replace(".", ",")} kcal
+            {calculateTotalCalorificValue().toFixed(2).replace(".", ",")} Mcal
           </Text>
         </View>
 

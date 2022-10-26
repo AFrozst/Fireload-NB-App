@@ -89,7 +89,11 @@ const FireSectorsList = ({ data, navigation }) => {
             >
               <DetailsDesc data={institution} />
               {sectors.length > 0 ? (
-                <Text style={styles.title}>Sectores</Text>
+                <View style={{
+                  marginTop: SIZES.font + 5,
+                }}>
+                  <Text style={styles.title}>Sectores</Text>
+                </View>
               ) : (
                 <View style={{ paddingTop: 15 }}>
                   <Text style={[styles.title, { textAlign: "center" }]}>

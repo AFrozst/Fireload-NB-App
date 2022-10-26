@@ -10,7 +10,7 @@ const MaterliaItem = ({ material, handleDelete }) => {
         <Text style={[styles.text, styles.title]}>{material.name}</Text>
         <View style={styles.dataContainer}>
           <Text style={[styles.text, styles.textSecondary]}>
-            Poder Calorifico: {material.heatValue} Kcal/Kg
+            Poder Calorifico: {material.heatValue} Mcal/Kg
           </Text>
           <Text style={[styles.text, styles.textSecondary]}>
             Peso: {material.Sector_Material.weight} kg
@@ -30,7 +30,7 @@ const MaterliaItem = ({ material, handleDelete }) => {
         <View style={styles.containerTotal}>
           <MaterialCommunityIcons name="fire" size={20} color="white" />
           <Text style={[styles.text, styles.fireloadData]}>
-            {material.Sector_Material.total} Kcal
+            {material.Sector_Material.total} Mcal
           </Text>
         </View>
       </View>

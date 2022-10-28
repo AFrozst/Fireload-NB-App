@@ -11,6 +11,7 @@ import logo from "../../assets/images/logo.png";
 import register from "../../assets/images/register.png";
 import login from "../../assets/images/login.png";
 import emptyData from "../../assets/images/emptyData.png";
+import Information from "../../assets/images/Information.png";
 
 export default {
   left,
@@ -25,4 +26,5 @@ export default {
   register,
   login,
   emptyData,
+  Information,
 };

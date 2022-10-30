@@ -27,6 +27,7 @@ import { ViewBlocked, ViewBlockedPressable } from "./common/ViewBlocked";
 import { ModalOptions, ModalBottomSheet } from "./common/MyModals";
 import BannerInformation from "./information/BannerInformation";
 import HeaderInformation from "./information/HeaderInformation";
+import ButtonInformation from "./information/ButtonInformation";
 
 export {
   FocusedStatusBar,
@@ -59,4 +60,5 @@ export {
   ModalBottomSheet,
   BannerInformation,
   HeaderInformation,
+  ButtonInformation,
 };

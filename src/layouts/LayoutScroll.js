@@ -1,5 +1,6 @@
 import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
+import { COLORS } from "../constants";
 
 const LayoutScroll = ({ children }) => {
   return (
@@ -17,11 +18,11 @@ const LayoutScroll = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.white,
   },
   scrollView: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor:  COLORS.white,
   },
 });
 

@@ -18,6 +18,7 @@ import InstitutionsScreen from "../screens/institutions/InstitutionsScreen";
 
 // Stacks
 import InstitutionsStackScreen from "./Stacks/InstitutionsStack";
+import InformactionStackScreen from "./Stacks/InformactionStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -67,7 +68,7 @@ const Tabs = () => {
 
       <Tab.Screen
         name={INFORMATION_SCREEN}
-        component={InformationScreen}
+        component={InformactionStackScreen}
         options={{
           tabBarLabel: "Información",
           headerShown: false,

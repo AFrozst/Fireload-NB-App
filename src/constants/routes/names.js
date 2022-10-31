@@ -1,4 +1,5 @@
 export const HOME = "Home";
+
 export const LOGIN = "Login";
 export const REGISTER = "Register";
 export const INSTITUTIONS = "Institutions";
@@ -19,3 +20,9 @@ export const FIRE_SECTOR_DETAIL_SCREEN = "Fire Sector Detail Screen";
 export const INSTITUTION_FORM_SCREEN = "Institution Form Screen";
 export const FIRE_SECTOR_FORM_SCREEN = "Fire Sector Form Screen";
 export const MATERIAL_FORM_SCREEN = "Material Form Screen";
+
+export const INFORMATION_MENU = "Information Menu";
+export const FIRELAOD_INFORMATION_SCREEN = "Fireload Information Screen";
+export const FIRES_INFORMATION_SCREEN = "Fires Information Screen";
+export const EXTINGUISHERS_INFORMATION_SCREEN = "Extinguishers Information Screen";
+export const MATERIALS_INFORMATION_SCREEN = "Materials Information Screen";

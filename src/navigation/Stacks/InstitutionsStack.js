@@ -10,6 +10,7 @@ import {
   INSTITUTION_FORM_SCREEN,
   FIRE_SECTOR_FORM_SCREEN,
   MATERIAL_FORM_SCREEN,
+  FIRELAOD_INFORMATION_SCREEN,
 } from "../../constants/routes/names";
 
 //True Screens
@@ -19,6 +20,7 @@ import InstitutionFormScreen from "../../screens/institutions/InstitutionFormScr
 import FireSectorFormScreen from "../../screens/fireSector/FireSectorFormScreen";
 import DetailFireSectorScreen from "../../screens/fireSector/DetailFireSectorScreen";
 import MaterialFormScreen from "../../screens/materials/MaterialFormScreen";
+import FireloadScreen from "../../screens/information/FireloadScreen";
 
 const StackInstitution = createNativeStackNavigator();
 
@@ -103,6 +105,17 @@ const InstitutionsStackScreen = () => {
           headerTintColor: COLORS.white,
         }}
       />
+
+      {/* <StackInstitution.Screen
+        name={FIRELAOD_INFORMATION_SCREEN}
+        component={FireloadScreen}
+        options={{
+          title: "Carga de Fuego",
+          headerStyle: { backgroundColor: COLORS.primary },
+          headerTitleStyle: { color: COLORS.white },
+          headerTintColor: COLORS.white,
+        }}
+      /> */}
     </StackInstitution.Navigator>
   );
 };

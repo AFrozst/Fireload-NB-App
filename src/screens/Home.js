@@ -26,7 +26,7 @@ const Home = ({ navigation }) => {
         <BannerImage
           image={assets.invoice}
           title="Bienvenido a Firelaod NB App"
-          subtitle="Aplicación base la Normativa Bolviana 58003 y 58005"
+          subtitle="Aplicación base la Normativa Bolviana 58005 y 58002"
         />
         <View style={styles.containerButtons}>
           <RectButtonArrow

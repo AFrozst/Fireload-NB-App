@@ -2,6 +2,7 @@ import assets from "./assets";
 import { COLORS, SIZES, SHADOWS, FONTS } from "./theme";
 import { InstitutionsData } from "./dummyData";
 import { weightedFireloadData, metodlogy } from "./data/fireloadInformation";
+import fires from "./data/fireTypesInformation";
 
 export {
   assets,
@@ -12,4 +13,5 @@ export {
   InstitutionsData,
   weightedFireloadData,
   metodlogy,
+  fires,
 };

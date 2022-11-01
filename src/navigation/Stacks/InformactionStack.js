@@ -61,7 +61,7 @@ const InformactionStack = () => {
         name={FIRES_INFORMATION_SCREEN}
         component={FiresScreen}
         options={{
-          title: "Tipo de fuegos",
+          title: "Tipos de fuegos",
           ...TransitionPresets.SlideFromRightIOS,
         }}
       />

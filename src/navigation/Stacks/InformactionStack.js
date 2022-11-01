@@ -43,7 +43,7 @@ const InformactionStack = () => {
         name={FIRELAOD_INFORMATION_SCREEN}
         component={FireloadScreen}
         options={{
-          title: "Carga de fuego",
+          title: "¿Qué es la carga de fuego?",
           ...TransitionPresets.SlideFromRightIOS,
         }}
       />

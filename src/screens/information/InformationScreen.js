@@ -116,7 +116,7 @@ const InformationScreen = ({ navigation }) => {
               }}
             >
               <ButtonInformation
-                label={"Clases de Fuego"}
+                label={"Tipos de Fuego"}
                 backgroundColor={COLORS.tertiary}
                 colorLabel={COLORS.primary}
                 icon={

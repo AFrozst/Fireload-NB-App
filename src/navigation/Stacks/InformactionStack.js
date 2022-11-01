@@ -6,6 +6,7 @@ import {
 import { COLORS } from "../../constants";
 import {
   INFORMATION_MENU,
+  METODOLOGY_INFORMATION_SCREEN,
   EXTINGUISHERS_INFORMATION_SCREEN,
   FIRELAOD_INFORMATION_SCREEN,
   FIRES_INFORMATION_SCREEN,
@@ -15,6 +16,7 @@ import {
 // TODO: Screens
 import InformationScreen from "../../screens/information/InformationScreen";
 import FireloadScreen from "../../screens/information/FireloadScreen";
+import MetodologyScreen from "../../screens/information/MetodologyScreen";
 import FiresScreen from "../../screens/information/FiresScreen";
 import ExtinguisherScreen from "../../screens/information/ExtinguisherScreen";
 import MaterialsScreen from "../../screens/information/MaterialsScreen";
@@ -44,6 +46,14 @@ const InformactionStack = () => {
         component={FireloadScreen}
         options={{
           title: "¿Qué es la carga de fuego?",
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      />
+      <StackInformation.Screen
+        name={METODOLOGY_INFORMATION_SCREEN}
+        component={MetodologyScreen}
+        options={{
+          title: "Metodología",
           ...TransitionPresets.SlideFromRightIOS,
         }}
       />

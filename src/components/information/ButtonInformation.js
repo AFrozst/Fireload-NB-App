@@ -17,7 +17,11 @@ const ButtonInformation = ({
     >
       <View style={styles.containerTitle}>
         {icon && <View style={styles.icon}>{icon}</View>}
-        <Text style={[styles.label, { color: colorLabel }]}>{label}</Text>
+        <Text
+          style={[styles.label, { color: colorLabel, textAlign: "center" }]}
+        >
+          {label}
+        </Text>
       </View>
       <View
         style={{

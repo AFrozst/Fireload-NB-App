@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, SafeAreaView, StyleSheet, Image } from "react-native";
-import { FocusedStatusBar, NotFound } from "../../components";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { FocusedStatusBar } from "../../components";
 import { LayoutScroll } from "../../layouts";
 import {
   assets,
@@ -8,53 +8,19 @@ import {
   SIZES,
   FONTS,
   weightedFireloadData,
-  metodlogy,
 } from "../../constants";
 
-const FireloadScreen = ({ navigation }) => {
+const FireloadScreen = () => {
   const [data, setData] = useState(null);
-  const [metdology, setMetdology] = useState(null);
 
   const renderItemFormule = (item, index) => {
     return (
       <View style={styles.itemFormule} key={`itemFormule-${index}`}>
-        <View
-          style={{
-            width: 35,
-            height: 35,
-            borderRadius: 25,
-            backgroundColor: COLORS.primary,
-            justifyContent: "center",
-            alignItems: "center",
-            marginRight: SIZES.base,
-          }}
-        >
-          <Text
-            style={{
-              color: COLORS.white,
-              fontFamily: FONTS.InterBold,
-              fontSize: SIZES.font,
-            }}
-          >
-            {item.symbol}
-          </Text>
+        <View style={styles.itemFormuleHeader}>
+          <Text style={styles.itemFormuleHeaderSymbol}>{item.symbol}</Text>
         </View>
-        <View
-          style={{
-            flex: 1,
-          }}
-        >
-          <Text
-            style={{
-              color: COLORS.black,
-              fontFamily: FONTS.InterRegular,
-              fontSize: SIZES.font,
-              fontStyle: "italic",
-              textAlign: "justify",
-            }}
-          >
-            {item.description}
-          </Text>
+        <View style={styles.itemFormuleBody}>
+          <Text style={styles.itemFormuleBodyText}>{item.description}</Text>
         </View>
       </View>
     );
@@ -62,7 +28,6 @@ const FireloadScreen = ({ navigation }) => {
 
   useEffect(() => {
     setData(weightedFireloadData);
-    setMetdology(metodlogy);
   }, []);
 
   return (
@@ -191,6 +156,31 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10,
     backgroundColor: COLORS.tertiary,
+  },
+  itemFormuleHeader: {
+    width: 35,
+    height: 35,
+    borderRadius: 25,
+    backgroundColor: COLORS.primary,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: SIZES.base,
+  },
+  itemFormuleHeaderSymbol: {
+    color: COLORS.white,
+    fontFamily: FONTS.InterBold,
+    fontSize: SIZES.font,
+  },
+  itemFormuleBody: {
+    flex: 1,
+    paddingHorizontal: SIZES.padding,
+  },
+  itemFormuleBodyText: {
+    color: COLORS.black,
+    fontFamily: FONTS.InterRegular,
+    fontSize: SIZES.font,
+    fontStyle: "italic",
+    textAlign: "justify",
   },
 });
 

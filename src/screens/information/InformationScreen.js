@@ -16,6 +16,7 @@ import {
 } from "@expo/vector-icons";
 import {
   FIRELAOD_INFORMATION_SCREEN,
+  METODOLOGY_INFORMATION_SCREEN,
   FIRES_INFORMATION_SCREEN,
   EXTINGUISHERS_INFORMATION_SCREEN,
   MATERIALS_INFORMATION_SCREEN,
@@ -34,15 +35,17 @@ const InformationScreen = ({ navigation }) => {
       />
       <HeaderInformation title={"Informacion General"} />
 
-      <View style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 100,
-        backgroundColor: COLORS.primary,
-        zIndex: -100,
-      }}/>
+      <View
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 100,
+          backgroundColor: COLORS.primary,
+          zIndex: -100,
+        }}
+      />
 
       <View style={styles.container}>
         <View>
@@ -71,7 +74,7 @@ const InformationScreen = ({ navigation }) => {
               }}
             >
               <ButtonInformation
-                label={"Calculo de Fuego"}
+                label={"Carga de Fuego"}
                 backgroundColor={COLORS.primary}
                 colorLabel={COLORS.white}
                 icon={
@@ -88,6 +91,30 @@ const InformationScreen = ({ navigation }) => {
                   handleNavigation(navigation, FIRELAOD_INFORMATION_SCREEN)
                 }
               />
+              <ButtonInformation
+                label={"Metodología de un estudio de carga de fuego"}
+                backgroundColor={COLORS.tertiary}
+                colorLabel={COLORS.primary}
+                icon={
+                  <MaterialCommunityIcons
+                    name="book-open-page-variant"
+                    size={24}
+                    color={COLORS.primary}
+                  />
+                }
+                descirption={"Conoce el proceso y las etapas del estudio"}
+                onPress={() =>
+                  handleNavigation(navigation, METODOLOGY_INFORMATION_SCREEN)
+                }
+              />
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <ButtonInformation
                 label={"Clases de Fuego"}
                 backgroundColor={COLORS.tertiary}
@@ -106,14 +133,6 @@ const InformationScreen = ({ navigation }) => {
                   handleNavigation(navigation, FIRES_INFORMATION_SCREEN)
                 }
               />
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
               <ButtonInformation
                 label={"Agentes Extintores"}
                 backgroundColor={COLORS.tertiary}
@@ -132,6 +151,15 @@ const InformationScreen = ({ navigation }) => {
                   handleNavigation(navigation, EXTINGUISHERS_INFORMATION_SCREEN)
                 }
               />
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <ButtonInformation
                 label={"Materiales Combustibles"}
                 backgroundColor={COLORS.tertiary}

@@ -23,6 +23,8 @@ export const MATERIAL_FORM_SCREEN = "Material Form Screen";
 
 export const INFORMATION_MENU = "Information Menu";
 export const FIRELAOD_INFORMATION_SCREEN = "Fireload Information Screen";
+export const METODOLOGY_INFORMATION_SCREEN = "Metodology Information Screen";
 export const FIRES_INFORMATION_SCREEN = "Fires Information Screen";
-export const EXTINGUISHERS_INFORMATION_SCREEN = "Extinguishers Information Screen";
+export const EXTINGUISHERS_INFORMATION_SCREEN =
+  "Extinguishers Information Screen";
 export const MATERIALS_INFORMATION_SCREEN = "Materials Information Screen";

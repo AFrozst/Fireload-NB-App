@@ -28,6 +28,7 @@ import { ModalOptions, ModalBottomSheet } from "./common/MyModals";
 import BannerInformation from "./information/BannerInformation";
 import HeaderInformation from "./information/HeaderInformation";
 import ButtonInformation from "./information/ButtonInformation";
+import MaterialCardInformation from "./information/MaterialCardInformation";
 
 export {
   FocusedStatusBar,
@@ -61,4 +62,5 @@ export {
   BannerInformation,
   HeaderInformation,
   ButtonInformation,
+  MaterialCardInformation,
 };

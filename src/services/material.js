@@ -55,3 +55,18 @@ export const deleteMaterial = async (
   const data = await response.json();
   return data;
 };
+
+export const getAndSearchMaterials = async (search = "") => {
+  const token = await AsyncStorage.getItem("@token");
+  const endpoint = `${API}${route_MATERIAL}/search?query=${search}`;
+  const response = await fetch(endpoint, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data;
+}

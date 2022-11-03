@@ -69,7 +69,7 @@ const InformactionStack = () => {
         name={EXTINGUISHERS_INFORMATION_SCREEN}
         component={ExtinguisherScreen}
         options={{
-          title: "Agentes extintores",
+          title: "Tipos de agentes extintores",
           ...TransitionPresets.SlideFromRightIOS,
         }}
       />

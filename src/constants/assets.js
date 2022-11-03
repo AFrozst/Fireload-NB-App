@@ -16,6 +16,7 @@ import Information from "../../assets/images/Information.png";
 import ilustrationFireloadInformation from "../../assets/images/IlustrationFireload.jpeg";
 import formuleInformation from "../../assets/images/Formula.png";
 import metodologyInformation from "../../assets/images/Metodology.png";
+import extinguisher from "../../assets/images/exintor.jpg";
 
 export default {
   left,
@@ -34,4 +35,5 @@ export default {
   ilustrationFireloadInformation,
   formuleInformation,
   metodologyInformation,
+  extinguisher,
 };

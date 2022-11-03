@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import {
   FocusedStatusBar,
-  MaterialCardInformation,
   Input,
+  MaterialCardPureComponent,
 } from "../../components";
 import { Layout } from "../../layouts";
 import { Ionicons } from "@expo/vector-icons";
@@ -44,7 +44,9 @@ const MaterialsScreen = () => {
     loadMaterials(searchTerm);
   };
 
-  const renderItem = ({ item }) => <MaterialCardInformation material={item} />;
+  const renderItem = ({ item }) => {
+    return <MaterialCardPureComponent material={item} />;
+  };
 
   return (
     <Layout>
@@ -89,6 +91,7 @@ const MaterialsScreen = () => {
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
+            initialNumToRender={10}
             style={{
               width: "100%",
             }}

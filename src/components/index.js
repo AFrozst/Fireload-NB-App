@@ -28,7 +28,7 @@ import { ModalOptions, ModalBottomSheet } from "./common/MyModals";
 import BannerInformation from "./information/BannerInformation";
 import HeaderInformation from "./information/HeaderInformation";
 import ButtonInformation from "./information/ButtonInformation";
-import MaterialCardInformation from "./information/MaterialCardInformation";
+import MaterialCardPureComponent from "./information/MaterialCardPureComponent";
 import FireExtinguisherCard from "./information/FireExtinguisherCard";
 
 export {
@@ -63,6 +63,6 @@ export {
   BannerInformation,
   HeaderInformation,
   ButtonInformation,
-  MaterialCardInformation,
   FireExtinguisherCard,
+  MaterialCardPureComponent,
 };

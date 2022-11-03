@@ -29,6 +29,7 @@ import BannerInformation from "./information/BannerInformation";
 import HeaderInformation from "./information/HeaderInformation";
 import ButtonInformation from "./information/ButtonInformation";
 import MaterialCardInformation from "./information/MaterialCardInformation";
+import FireExtinguisherCard from "./information/FireExtinguisherCard";
 
 export {
   FocusedStatusBar,
@@ -63,4 +64,5 @@ export {
   HeaderInformation,
   ButtonInformation,
   MaterialCardInformation,
+  FireExtinguisherCard,
 };

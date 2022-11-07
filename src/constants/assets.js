@@ -19,6 +19,7 @@ import metodologyInformation from "../../assets/images/Metodology.png";
 import extinguisher from "../../assets/images/exintor.jpg";
 
 import report from "../../assets/images/report.png";
+import report_icon from "../../assets/images/report-icon.jpg";
 
 export default {
   left,
@@ -39,4 +40,5 @@ export default {
   metodologyInformation,
   extinguisher,
   report,
+  report_icon,
 };

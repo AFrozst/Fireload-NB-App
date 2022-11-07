@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import {
   FocusedStatusBar,
   BannerInformation,
@@ -41,7 +41,7 @@ const InformationScreen = ({ navigation }) => {
           top: 0,
           left: 0,
           right: 0,
-          height: 100,
+          height: 150,
           backgroundColor: COLORS.primary,
           zIndex: -100,
         }}

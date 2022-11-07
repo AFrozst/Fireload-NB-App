@@ -18,6 +18,8 @@ import formuleInformation from "../../assets/images/Formula.png";
 import metodologyInformation from "../../assets/images/Metodology.png";
 import extinguisher from "../../assets/images/exintor.jpg";
 
+import report from "../../assets/images/report.png";
+
 export default {
   left,
   building,
@@ -36,4 +38,5 @@ export default {
   formuleInformation,
   metodologyInformation,
   extinguisher,
+  report,
 };

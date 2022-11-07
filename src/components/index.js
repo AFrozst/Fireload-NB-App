@@ -30,6 +30,9 @@ import HeaderInformation from "./information/HeaderInformation";
 import ButtonInformation from "./information/ButtonInformation";
 import MaterialCardPureComponent from "./information/MaterialCardPureComponent";
 import FireExtinguisherCard from "./information/FireExtinguisherCard";
+import ReportCardPureComponent from "./reports/ReportCardPureComponent";
+import HeaderReports from "./reports/HeaderReports";
+import BannerReport from "./reports/BannerReport";
 
 export {
   FocusedStatusBar,
@@ -65,4 +68,7 @@ export {
   ButtonInformation,
   FireExtinguisherCard,
   MaterialCardPureComponent,
+  ReportCardPureComponent,
+  HeaderReports,
+  BannerReport,
 };

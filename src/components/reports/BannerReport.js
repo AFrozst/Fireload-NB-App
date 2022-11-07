@@ -2,18 +2,22 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 
-const BannerInformation = () => {
+const BannerReport = () => {
   return (
     <View style={styles.container}>
       <View style={styles.conteinerInfo}>
-        <Text style={styles.title}>¡Área de información general!</Text>
+        <Text style={styles.title}>¡Genere un reporte rápido!</Text>
         <Text style={styles.text}>
-          Conoce más acerca del estudio de carga de fuego
+          Elije un estudio de carga de fuego y presione el botón Generar PDF
         </Text>
       </View>
 
       <View style={styles.containerImage}>
-        <Image source={assets.Information} style={styles.image} />
+        <Image
+          source={assets.report}
+          style={styles.image}
+          resizeMode={"contain"}
+        />
       </View>
     </View>
   );
@@ -23,7 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: 125,
-    marginVertical: SIZES.padding * 2,
+    marginBottom: SIZES.padding,
     backgroundColor: COLORS.white,
     flexDirection: "row",
     padding: SIZES.padding,
@@ -46,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: SIZES.small + 2,
     fontFamily: FONTS.InterBold,
     color: COLORS.primary,
+    textAlign: "center",
   },
   text: {
     fontSize: SIZES.base + 3,
@@ -56,10 +61,10 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
   },
   image: {
-    width: 125,
-    height: 125,
+    width: "100%",
+    height: 115,
     alignSelf: "center",
   },
 });
 
-export default BannerInformation;
+export default BannerReport;

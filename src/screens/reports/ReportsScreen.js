@@ -10,7 +10,7 @@ import {
 import {
   FocusedStatusBar,
   HeaderInformation,
-  ReportCardPureComponent,
+  ReportCard,
   HeaderReports,
   BannerReport,
 } from "../../components";
@@ -39,7 +39,7 @@ const Reports = ({ navigation }) => {
   }, []);
 
   const renderItem = ({ item }) => {
-    return <ReportCardPureComponent institution={item} />;
+    return <ReportCard institution={item} />;
   };
 
   return (

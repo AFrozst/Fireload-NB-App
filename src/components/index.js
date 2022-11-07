@@ -24,7 +24,7 @@ import RegisterComponent from "./auth/RegisterComponent";
 import Message from "./common/Message";
 import UDcomponent from "./common/UDcomponent";
 import { ViewBlocked, ViewBlockedPressable } from "./common/ViewBlocked";
-import { ModalOptions, ModalBottomSheet } from "./common/MyModals";
+import { ModalOptions, ModalMessageDownloading } from "./common/MyModals";
 import BannerInformation from "./information/BannerInformation";
 import HeaderInformation from "./information/HeaderInformation";
 import ButtonInformation from "./information/ButtonInformation";
@@ -62,7 +62,7 @@ export {
   ViewBlocked,
   ViewBlockedPressable,
   ModalOptions,
-  ModalBottomSheet,
+  ModalMessageDownloading,
   BannerInformation,
   HeaderInformation,
   ButtonInformation,

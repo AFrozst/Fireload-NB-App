@@ -4,30 +4,44 @@ import { COLORS, SIZES, FONTS, assets } from "../../constants";
 import { generateReport } from "../../services/report";
 import { ModalMessageDownloading } from "../common/MyModals";
 
+import * as FileSystem from "expo-file-system";
+import * as Sharing from "expo-sharing";
+
+const API = "http://10.0.2.2:5000";
+
 const ReportCardPureComponent = ({ institution }) => {
   const messageGenerate = "Estamos generando su reporte del estudio";
   const messageDownload = "Estamos descargando su reporte del estudio";
   const [isDownloading, setIsDownloading] = useState(false);
   const [messageModal, setMessageModal] = useState("");
-  const [urlDownload, setUrlDownload] = useState(null);
+
+  const downloadFile = async (urlFilename, filename) => {
+    setMessageModal(messageDownload);
+    let url = `${API}${urlFilename}`;
+    let fileUri = FileSystem.documentDirectory + filename;
+
+    const downloadResumable = FileSystem.createDownloadResumable(url, fileUri);
+    try {
+      const { uri } = await downloadResumable.downloadAsync();
+      setMessageModal("");
+      setIsDownloading(false);
+      await Sharing.shareAsync(uri);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const handleGeneratePDF = async (id) => {
     try {
       setMessageModal(messageGenerate);
-      setUrlDownload(null);
       setIsDownloading(true);
       const response = await generateReport(id);
-
       if (response.status === 200) {
-        setUrlDownload({
-          url: response.data.path_filePDF,
-          filename: response.data.url_filePDF,
-          uriPath: response.data.url_filePDF,
-        });
-        setMessageModal(messageDownload);
+        await downloadFile(
+          response.data.url_pathFileName,
+          response.data.filename
+        );
       }
-      console.log("Se genero un reporte");
-      setIsDownloading(false);
     } catch (error) {
       console.log(error);
       setIsDownloading(false);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { COLORS, SIZES, FONTS, assets } from "../../constants";
 import { generateReport } from "../../services/report";
+import { ModalMessageDownloading } from "../common/MyModals";
 
 const ReportCardPureComponent = ({ institution }) => {
   const messageGenerate = "Estamos generando su reporte del estudio";
@@ -18,13 +19,14 @@ const ReportCardPureComponent = ({ institution }) => {
       const response = await generateReport(id);
 
       if (response.status === 200) {
-        setMessageModal(messageDownload);
         setUrlDownload({
           url: response.data.path_filePDF,
           filename: response.data.url_filePDF,
           uriPath: response.data.url_filePDF,
         });
+        setMessageModal(messageDownload);
       }
+      console.log("Se genero un reporte");
       setIsDownloading(false);
     } catch (error) {
       console.log(error);
@@ -62,6 +64,13 @@ const ReportCardPureComponent = ({ institution }) => {
           </TouchableOpacity>
         </View>
       </View>
+
+      <ModalMessageDownloading
+        title={"Espere un momemto..."}
+        message={messageModal}
+        isModalOpen={isDownloading}
+        setIsModalOpen={setIsDownloading}
+      />
     </View>
   );
 };

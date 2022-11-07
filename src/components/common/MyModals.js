@@ -3,19 +3,43 @@ import {
   Text,
   StyleSheet,
   Modal,
-  Button,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ViewBlockedPressable } from "./ViewBlocked";
 import { COLORS, FONTS, SIZES } from "../../constants";
 
-export const ModalBottomSheet = ({ children }) => {
+export const ModalMessageDownloading = ({
+  title,
+  message,
+  isModalOpen,
+  setIsModalOpen,
+}) => {
   return (
-    <View style={styles.modalContainer}>
-      <View style={styles.modalContent}>{children}</View>
-    </View>
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={isModalOpen}
+      onRequestClose={() => {
+        setIsModalOpen(false);
+      }}
+      statusBarTranslucent={true}
+    >
+      <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+          <View style={styles.modalHeader}>
+            <Text style={styles.modalTitle}>{title}</Text>
+          </View>
+          <View style={styles.separatorLine} />
+          <View style={styles.modalBody}>
+            <Text style={styles.modalMessage}>{message}</Text>
+            <ActivityIndicator size="large" color={COLORS.quaternary} />
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 };
 
@@ -105,6 +129,61 @@ export const ModalOptions = ({
 };
 
 const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.55)",
+  },
+  modalView: {
+    width: "80%",
+    backgroundColor: COLORS.white,
+    borderRadius: 7,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 10,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modalHeader: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+  },
+  modalTitle: {
+    fontFamily: FONTS.InterSemiBold,
+    fontSize: SIZES.large,
+    color: COLORS.primary,
+  },
+  modalBody: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+  },
+  modalMessage: {
+    fontFamily: FONTS.InterRegular,
+    fontSize: SIZES.font,
+    textAlign: "center",
+    color: COLORS.primary,
+    marginBottom: 20,
+  },
+  separatorLine: {
+    width: "100%",
+    height: 3,
+    backgroundColor: COLORS.primary,
+    marginBottom: 10,
+    borderRadius: 10
+  },
+
   modalContainerStyle: {
     flex: 1,
     justifyContent: "flex-end",
@@ -117,7 +196,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 20,
     alignItems: "center",
-
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

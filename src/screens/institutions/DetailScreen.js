@@ -41,7 +41,7 @@ const DetailScreen = ({ route, navigation }) => {
         />
       </View>
 
-      <FireSectorsList data={institution} navigation={navigation} />
+      <FireSectorsList idInstitution={institution.id} navigation={navigation} />
     </SafeAreaView>
   );
 };

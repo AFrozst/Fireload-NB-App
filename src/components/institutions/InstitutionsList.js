@@ -19,11 +19,13 @@ const InstitutionsList = ({ navigation }) => {
 
   const loadInstitutions = async () => {
     try {
+      setIsLoading(true);
       const dataApi = await getInstitutions();
       setInstitutions(dataApi.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
       setError(true);
     }
   };
@@ -88,9 +90,9 @@ const InstitutionsList = ({ navigation }) => {
           style={{ width: "100%" }}
         />
       ) : (
-        <LayoutContainer style={{ padding: 0}}>
+        <LayoutContainer style={{ padding: 0 }}>
           <HomeHeader />
-          <View style={{backgroundColor: COLORS.white, paddingVertical: 40}}>
+          <View style={{ backgroundColor: COLORS.white, paddingVertical: 40 }}>
             <BannerImage
               image={assets.emptyData}
               title="No hay instituciones"

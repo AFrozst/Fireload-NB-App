@@ -20,7 +20,7 @@ const DetailScreen = ({ route, navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.secondary }}>
       <FocusedStatusBar
         barStyle="light-content"
         backgroundColor={COLORS.primary}
@@ -41,10 +41,7 @@ const DetailScreen = ({ route, navigation }) => {
         />
       </View>
 
-      <FireSectorsList
-        data={institution}
-        navigation={navigation}
-      />
+      <FireSectorsList data={institution} navigation={navigation} />
     </SafeAreaView>
   );
 };

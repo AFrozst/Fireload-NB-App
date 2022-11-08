@@ -26,7 +26,6 @@ const StackInformation = createStackNavigator();
 const InformactionStack = () => {
   return (
     <StackInformation.Navigator
-      //initialRouteName={INFORMATION_MENU}
       screenOptions={{
         headerTintColor: COLORS.white,
         headerStyle: {

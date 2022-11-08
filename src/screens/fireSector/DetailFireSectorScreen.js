@@ -13,7 +13,6 @@ import { MATERIAL_FORM_SCREEN } from "../../constants/routes/names";
 
 const FireSectorScreen = ({ navigation, route }) => {
   const { sector, idInstitution } = route.params;
-  const [fireSector, setFireSector] = useState(sector);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,10 +21,13 @@ const FireSectorScreen = ({ navigation, route }) => {
         backgroundColor={COLORS.primary}
       />
 
-      {fireSector && <HeaderFireSector sector={fireSector} />}
-      <Layout>
+      <Layout
+        styleContainer={{
+          paddingHorizontal: 0,
+        }}
+      >
         <MaterialsList
-          sectorId={fireSector ? fireSector.id : null}
+          sectorId={sector ? sector.id : null}
           institutionId={idInstitution}
         />
       </Layout>
@@ -33,7 +35,7 @@ const FireSectorScreen = ({ navigation, route }) => {
       <AddButton
         handlePress={() =>
           navigation.navigate(MATERIAL_FORM_SCREEN, {
-            sectorId: fireSector ? fireSector.id : null,
+            sectorId: sector ? sector.id : null,
             institutionId: idInstitution,
           })
         }

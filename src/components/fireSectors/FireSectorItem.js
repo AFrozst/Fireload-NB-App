@@ -18,7 +18,6 @@ const FireSectorItem = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handlePress = () => {
-    //navigation.navigate("Fire Sector Screen", { sector });
     navigation.navigate(FIRE_SECTOR_DETAIL_SCREEN, { sector, idInstitution });
   };
   const handleEdit = () => {

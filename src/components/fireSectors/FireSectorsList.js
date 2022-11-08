@@ -18,7 +18,6 @@ const FireSectorsList = ({ idInstitution, navigation }) => {
 
   const loadData = async () => {
     try {
-      setIsLoading(true);
       const dataApi = await getInstitution(idInstitution);
       setInstitution(dataApi.data);
       const sectorsApi = dataApi.data.firesectors;

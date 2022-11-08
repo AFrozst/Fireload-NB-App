@@ -10,20 +10,23 @@ import { useIsFocused } from "@react-navigation/native";
 import { getInstitution } from "../../services/institution";
 import { deleteFireSector } from "../../services/fireSector";
 
-const FireSectorsList = ({ data, navigation }) => {
-  const [institution, setInstitution] = useState(data);
+const FireSectorsList = ({ idInstitution, navigation }) => {
+  const [institution, setInstitution] = useState(null);
   const [sectors, setSectors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const isFocused = useIsFocused();
 
   const loadData = async () => {
     try {
-      const dataApi = await getInstitution(data.id);
+      const dataApi = await getInstitution(idInstitution);
+      setInstitution(dataApi.data);
       const sectorsApi = dataApi.data.firesectors;
       setSectors(sectorsApi);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
+      alert("Hubo un error de conexion, intente de nuevo");
     }
   };
 
@@ -37,7 +40,7 @@ const FireSectorsList = ({ data, navigation }) => {
         text: "Eliminar",
         onPress: async () => {
           try {
-            await deleteFireSector(data.id, id);
+            await deleteFireSector(idInstitution, id);
             await loadData();
           } catch (error) {
             console.log(error);
@@ -50,7 +53,7 @@ const FireSectorsList = ({ data, navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <FireSectorItem
-        idInstitution={data.id}
+        idInstitution={idInstitution}
         sector={item}
         navigation={navigation}
         handleDelete={handleDelete}
@@ -72,6 +75,8 @@ const FireSectorsList = ({ data, navigation }) => {
       keyExtractor={(item) => item.id}
       renderItem={renderItem}
       showsVerticalScrollIndicator={false}
+      onRefresh={loadData}
+      refreshing={false}
       contentContainerStyle={{
         paddingBottom: SIZES.extralarge * 3,
       }}
@@ -89,9 +94,11 @@ const FireSectorsList = ({ data, navigation }) => {
             >
               <DetailsDesc data={institution} />
               {sectors.length > 0 ? (
-                <View style={{
-                  marginTop: SIZES.font + 5,
-                }}>
+                <View
+                  style={{
+                    marginTop: SIZES.font + 5,
+                  }}
+                >
                   <Text style={styles.title}>Sectores</Text>
                 </View>
               ) : (

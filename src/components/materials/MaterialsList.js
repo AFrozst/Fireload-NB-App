@@ -7,8 +7,10 @@ import { useIsFocused } from "@react-navigation/native";
 
 import { getFireSector } from "../../services/fireSector";
 import { deleteMaterial } from "../../services/material";
+import HeaderFireSector from "../materials/Header";
 
 const MaterialsList = ({ sectorId, institutionId }) => {
+  const [sector, setSector] = useState(null);
   const [materials, setMaterials] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const isFocused = useIsFocused();
@@ -16,10 +18,13 @@ const MaterialsList = ({ sectorId, institutionId }) => {
   const loadData = async () => {
     try {
       const { data } = await getFireSector(institutionId, sectorId);
+      setSector(data);
       setMaterials(data.materials);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
+      alert("Hubo un error de conexion, intente de nuevo");
     }
   };
 
@@ -64,24 +69,39 @@ const MaterialsList = ({ sectorId, institutionId }) => {
       data={materials}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
+      onRefresh={loadData}
+      refreshing={false}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingBottom: SIZES.extralarge * 3 }}
+      contentContainerStyle={{
+        paddingBottom: SIZES.extralarge * 3,
+      }}
       ListHeaderComponent={() => (
-        <View style={{ paddingTop: SIZES.font }}>
-          {materials.length === 0 ? (
-            <Text
-              style={{ fontSize: SIZES.font, fontFamily: FONTS.InterSemiBold }}
-            >
-              No hay materiales registrados
-            </Text>
-          ) : (
-            <Text
-              style={{ fontSize: SIZES.font, fontFamily: FONTS.InterSemiBold }}
-            >
-              Materiales Combustibles
-            </Text>
-          )}
-        </View>
+        <>
+          <HeaderFireSector sector={sector} />
+          <View
+            style={{ paddingTop: SIZES.font, paddingHorizontal: SIZES.padding }}
+          >
+            {materials.length === 0 ? (
+              <Text
+                style={{
+                  fontSize: SIZES.font,
+                  fontFamily: FONTS.InterSemiBold,
+                }}
+              >
+                No hay materiales registrados
+              </Text>
+            ) : (
+              <Text
+                style={{
+                  fontSize: SIZES.font,
+                  fontFamily: FONTS.InterSemiBold,
+                }}
+              >
+                Materiales Combustibles
+              </Text>
+            )}
+          </View>
+        </>
       )}
     />
   );

@@ -43,14 +43,6 @@ const Home = ({ navigation }) => {
             title="Elaborar Reporte"
             handlePress={() => navigation.navigate(REPORTS_SCREEN)}
           />
-          <RectButtonArrow
-            title="Equipos de Extinción"
-            handlePress={() => console.log("Sectores de Incendio")}
-          />
-          <RectButtonArrow
-            title="Equipos de Emergencia"
-            handlePress={() => console.log("Sectores de Incendio")}
-          />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -1,5 +1,8 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { TouchableOpacity } from "react-native";
 import { COLORS } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
@@ -10,31 +13,33 @@ import {
   INSTITUTION_FORM_SCREEN,
   FIRE_SECTOR_FORM_SCREEN,
   MATERIAL_FORM_SCREEN,
-  FIRELAOD_INFORMATION_SCREEN,
 } from "../../constants/routes/names";
 
-//True Screens
+// TODO: Screens
 import InstitutionsScreen from "../../screens/institutions/InstitutionsScreen";
 import DetailScreen from "../../screens/institutions/DetailScreen";
 import InstitutionFormScreen from "../../screens/institutions/InstitutionFormScreen";
 import FireSectorFormScreen from "../../screens/fireSector/FireSectorFormScreen";
 import DetailFireSectorScreen from "../../screens/fireSector/DetailFireSectorScreen";
 import MaterialFormScreen from "../../screens/materials/MaterialFormScreen";
-import FireloadScreen from "../../screens/information/FireloadScreen";
 
-const StackInstitution = createNativeStackNavigator();
+const StackInstitution = createStackNavigator();
 
 const InstitutionsStackScreen = () => {
   return (
-    <StackInstitution.Navigator>
+    <StackInstitution.Navigator
+      screenOptions={{
+        headerTintColor: COLORS.white,
+        headerStyle: {
+          backgroundColor: COLORS.primary,
+        },
+      }}
+    >
       <StackInstitution.Screen
         name={INSTITUTION_LIST}
         component={InstitutionsScreen}
-        //component={InstitutionScreen}
         options={({ navigation }) => ({
           title: "Tus Estudios",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
           headerRight: () => (
             <TouchableOpacity
               style={{ marginRight: 10 }}
@@ -53,12 +58,9 @@ const InstitutionsStackScreen = () => {
       <StackInstitution.Screen
         name={INSTITUTION_DETAIL_SCREEN}
         component={DetailScreen}
-        //component={InstitutionDetailScreen}
         options={{
           title: "Detalle de la Institución",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
+          ...TransitionPresets.SlideFromRightIOS,
         }}
       />
 
@@ -67,9 +69,7 @@ const InstitutionsStackScreen = () => {
         component={DetailFireSectorScreen}
         options={{
           title: "Detalle Sector de Incendio",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
+          ...TransitionPresets.SlideFromRightIOS,
         }}
       />
 
@@ -78,9 +78,7 @@ const InstitutionsStackScreen = () => {
         component={InstitutionFormScreen}
         options={{
           title: "Registrar nueva Institución",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
+          presentation: "modal",
         }}
       />
 
@@ -89,9 +87,7 @@ const InstitutionsStackScreen = () => {
         component={FireSectorFormScreen}
         options={{
           title: "Nuevo Sector de Incendio",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
+          presentation: "modal",
         }}
       />
 
@@ -100,22 +96,9 @@ const InstitutionsStackScreen = () => {
         component={MaterialFormScreen}
         options={{
           title: "Añadir Material",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
+          presentation: "transparentModal",
         }}
       />
-
-      {/* <StackInstitution.Screen
-        name={FIRELAOD_INFORMATION_SCREEN}
-        component={FireloadScreen}
-        options={{
-          title: "Carga de Fuego",
-          headerStyle: { backgroundColor: COLORS.primary },
-          headerTitleStyle: { color: COLORS.white },
-          headerTintColor: COLORS.white,
-        }}
-      /> */}
     </StackInstitution.Navigator>
   );
 };

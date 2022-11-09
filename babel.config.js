@@ -6,5 +6,10 @@ module.exports = function (api) {
       "react-native-reanimated/plugin", // <-- Add this line
       ["module:react-native-dotenv", { moduleName: "@env", path: ".env" }],
     ],
+    env: {
+      production: {
+        plugins: ["react-native-paper/babel"],
+      },
+    },
   };
 };

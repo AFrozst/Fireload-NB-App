@@ -3,16 +3,16 @@ import {
   Text,
   View,
   SafeAreaView,
-  TouchableOpacity,
   Image,
   Alert,
 } from "react-native";
 import React from "react";
-import { SETTINGS } from "../../constants/routes/names";
-import { COLORS, assets } from "../../constants";
-import { LayoutContainer } from "../../layouts";
-import logoutUser from "../../context/actions/auth/logoutUser";
+import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
+import { Drawer } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { ABOUT, HOME, PROFILE } from "../../constants/routes/names";
+import { COLORS, assets, FONTS, SIZES } from "../../constants";
+import logoutUser from "../../context/actions/auth/logoutUser";
 
 const SideMenu = ({ navigation, authDispatch }) => {
   const logout = () => {
@@ -31,52 +31,85 @@ const SideMenu = ({ navigation, authDispatch }) => {
     ]);
   };
 
-  const menuItems = [
+  const MENU = [
     {
       icon: (
-        <MaterialCommunityIcons name="cog" size={17} color={COLORS.black} />
+        <MaterialCommunityIcons
+          name="folder-home-outline"
+          size={24}
+          color={COLORS.primary}
+        />
       ),
-      name: "Configuracion",
+      label: "Tus Estudios",
       onPress: () => {
-        navigation.navigate(SETTINGS);
+        navigation.navigate(HOME);
       },
     },
     {
       icon: (
         <MaterialCommunityIcons
-          name="logout-variant"
-          size={17}
-          color={COLORS.black}
+          name="account-hard-hat"
+          size={24}
+          color={COLORS.primary}
         />
       ),
-      name: "Cerrar Sesion",
-      onPress: logout,
+      label: "Perfil",
+      onPress: () => {
+        navigation.navigate(PROFILE);
+      },
+    },
+    {
+      icon: (
+        <MaterialCommunityIcons
+          name="book-information-variant"
+          size={24}
+          color={COLORS.primary}
+        />
+      ),
+      label: "Acerca de Fireload NB",
+      onPress: () => {
+        navigation.navigate(ABOUT);
+      },
     },
   ];
 
   return (
-    <SafeAreaView>
-      <LayoutContainer>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
         <Image
           source={assets.logo}
           height={70}
           width={70}
           style={styles.logoImage}
         />
-
-        <View style={styles.menuItemsContainer}>
-          {menuItems.map((item, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.menuItem}
-              onPress={item.onPress}
-            >
-              <View>{item.icon}</View>
-              <Text style={styles.menuItemText}>{item.name}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </LayoutContainer>
+      </View>
+      <DrawerContentScrollView>
+        <Drawer.Section style={styles.drawerSection}>
+          {MENU.map((menu, index) => {
+            return (
+              <DrawerItem
+                key={index}
+                label={() => <Text style={styles.labelMenu}>{menu.label}</Text>}
+                icon={() => menu.icon}
+                onPress={menu.onPress}
+              />
+            );
+          })}
+        </Drawer.Section>
+      </DrawerContentScrollView>
+      <Drawer.Section style={styles.bottomDrawerSection}>
+        <DrawerItem
+          label={() => <Text style={styles.labelMenu}>Cerrar Sesión</Text>}
+          icon={() => (
+            <MaterialCommunityIcons
+              name="exit-to-app"
+              size={24}
+              color={COLORS.primary}
+            />
+          )}
+          onPress={logout}
+        />
+      </Drawer.Section>
     </SafeAreaView>
   );
 };
@@ -84,23 +117,36 @@ const SideMenu = ({ navigation, authDispatch }) => {
 export default SideMenu;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.secondary,
+  },
   logoImage: {
+    height: 125,
+    width: 125,
+    marginTop: 20,
+    backgroundColor: COLORS.primary,
+  },
+  header: {
     height: 150,
-    width: 150,
-    marginTop: 50,
-    alignSelf: "center",
-  },
-  menuItemsContainer: {
-    paddingHorizontal: 30,
-    justifyContent: "flex-start",
-  },
-  menuItem: {
+    backgroundColor: COLORS.primary,
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
   },
-  menuItemText: {
-    fontSize: 17,
-    paddingVertical: 7,
-    paddingLeft: 20,
+  bottomDrawerSection: {
+    marginBottom: 15,
+    borderTopColor: "#f4f4f4",
+    borderTopWidth: 1,
+  },
+  drawerSection: {
+    marginTop: 15,
+  },
+  labelMenu: {
+    textAlign: "left",
+    color: COLORS.primary,
+    fontSize: SIZES.font,
+    fontFamily: FONTS.InterSemiBold,
+    fontWeight: "bold",
   },
 });

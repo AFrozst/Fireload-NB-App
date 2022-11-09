@@ -1,11 +1,12 @@
 export const HOME = "Home";
+export const PROFILE = "Profile";
+export const ABOUT = "About";
 
 export const LOGIN = "Login";
 export const REGISTER = "Register";
 export const INSTITUTIONS = "Institutions";
 export const INSTITUTION_DETAIL = "Institution Detail";
 export const CREATE_INSTITUTION = "Create Institution";
-export const SETTINGS = "Settings";
 
 export const HOME_FIRELOAD = "Home Fireload";
 export const INSTITUTIONS_SCREEN = "Institutions";

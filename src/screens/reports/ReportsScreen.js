@@ -14,7 +14,6 @@ import {
   HeaderReports,
   BannerReport,
 } from "../../components";
-import { assets } from "../../constants";
 import { COLORS, SIZES, FONTS } from "../../constants";
 import { getInstitutions } from "../../services/institution";
 

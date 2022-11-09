@@ -19,6 +19,7 @@ const InstitutionsList = ({ navigation }) => {
 
   const loadInstitutions = async () => {
     try {
+      setError(false);
       setIsLoading(true);
       const dataApi = await getInstitutions();
       setInstitutions(dataApi.data);

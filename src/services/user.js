@@ -2,13 +2,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import envs from "../config/env";
 
 const API_URL = envs.BACKEND_URL;
-const API = `${API_URL}/reports`;
-const typeReport = "/pdf";
+const API = `${API_URL}/auth/user`;
 
-export const generateReport = async (id) => {
+export const getUser = async () => {
   const token = await AsyncStorage.getItem("@token");
-  const endpoint = `${API}${typeReport}/${id}`;
-  const response = await fetch(endpoint, {
+  const response = await fetch(API, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

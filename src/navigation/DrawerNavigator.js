@@ -7,20 +7,13 @@ import SideMenu from "./Drawer/SideMenu";
 import { GlobalContext } from "../context/Provider";
 import Tabs from "./Tabs";
 import ProfileScreen from "../screens/Profile";
+import AboutScreen from "../screens/About";
 import { COLORS } from "../constants";
 
 const Drawer = createDrawerNavigator();
 
 const getDrawerContent = (navigation, authDispatch) => {
   return <SideMenu navigation={navigation} authDispatch={authDispatch} />;
-};
-
-const AboutScreen = () => {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>About Screen</Text>
-    </View>
-  );
 };
 
 const DrawerNavigator = () => {
@@ -53,9 +46,13 @@ const DrawerNavigator = () => {
           title: "Usuario",
         }}
       />
-      <Drawer.Screen name={ABOUT} component={AboutScreen} options={{
+      <Drawer.Screen
+        name={ABOUT}
+        component={AboutScreen}
+        options={{
           title: "Acerca de Fireload NB",
-      }}/>
+        }}
+      />
     </Drawer.Navigator>
   );
 };

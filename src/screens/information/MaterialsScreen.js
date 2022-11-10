@@ -11,28 +11,33 @@ import {
   FocusedStatusBar,
   Input,
   MaterialCardPureComponent,
+  NotFound,
 } from "../../components";
 import { Layout } from "../../layouts";
 import { Ionicons } from "@expo/vector-icons";
-import { assets, COLORS, SIZES, FONTS } from "../../constants";
+import { COLORS, SIZES, FONTS } from "../../constants";
 import { getAndSearchMaterials } from "../../services/material";
 
 const MaterialsScreen = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [materialsList, setMaterialsList] = useState([]);
   const [totalMaterials, setTotalMaterials] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const loadMaterials = async (searchTerm) => {
     try {
-      setLoading(true);
+      setError(false);
+      setIsLoading(true);
       const response = await getAndSearchMaterials(searchTerm);
       setMaterialsList(response.data);
       setTotalMaterials(response.data.length);
-      setLoading(false);
+      setIsLoading(false);
     } catch (error) {
-      alert(error);
-      setLoading(false);
+      console.log(error);
+      setIsLoading(false);
+      setError(true);
+      alert("Hubo un error de conexion, intente de nuevo aqui");
     }
   };
 
@@ -47,6 +52,14 @@ const MaterialsScreen = () => {
   const renderItem = ({ item }) => {
     return <MaterialCardPureComponent material={item} />;
   };
+
+  if (error) {
+    return (
+      <Layout>
+        <NotFound onPress={() => loadMaterials()} />
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -83,7 +96,7 @@ const MaterialsScreen = () => {
           </Text>
         )}
 
-        {loading ? (
+        {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.quaternary} />
         ) : (
           <FlatList

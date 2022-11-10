@@ -4,6 +4,7 @@ import DetailHeader from "../institutions/DetailHeader";
 import DetailsDesc from "../institutions/DetailsDesc";
 import FireSectorItem from "./FireSectorItem";
 import Loading from "../common/Loading";
+import NotFound from "../common/NotFound";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import { useIsFocused } from "@react-navigation/native";
 
@@ -11,13 +12,15 @@ import { getInstitution } from "../../services/institution";
 import { deleteFireSector } from "../../services/fireSector";
 
 const FireSectorsList = ({ idInstitution, navigation }) => {
-  const [institution, setInstitution] = useState(null);
+  const [institution, setInstitution] = useState({});
   const [sectors, setSectors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const isFocused = useIsFocused();
 
   const loadData = async () => {
     try {
+      setError(false);
       const dataApi = await getInstitution(idInstitution);
       setInstitution(dataApi.data);
       const sectorsApi = dataApi.data.firesectors;
@@ -26,6 +29,7 @@ const FireSectorsList = ({ idInstitution, navigation }) => {
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+      setError(true);
       alert("Hubo un error de conexion, intente de nuevo");
     }
   };
@@ -64,6 +68,17 @@ const FireSectorsList = ({ idInstitution, navigation }) => {
   useEffect(() => {
     loadData();
   }, [isFocused]);
+
+  if (error) {
+    return (
+      <NotFound
+        onPress={() => {
+          setIsLoading(true);
+          loadData();
+        }}
+      />
+    );
+  }
 
   if (isLoading) {
     return <Loading />;

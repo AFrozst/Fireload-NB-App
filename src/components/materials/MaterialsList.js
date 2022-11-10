@@ -8,15 +8,18 @@ import { useIsFocused } from "@react-navigation/native";
 import { getFireSector } from "../../services/fireSector";
 import { deleteMaterial } from "../../services/material";
 import HeaderFireSector from "../materials/Header";
+import NotFound from "../common/NotFound";
 
 const MaterialsList = ({ sectorId, institutionId }) => {
-  const [sector, setSector] = useState(null);
+  const [sector, setSector] = useState({});
   const [materials, setMaterials] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const isFocused = useIsFocused();
 
   const loadData = async () => {
     try {
+      setError(false);
       const { data } = await getFireSector(institutionId, sectorId);
       setSector(data);
       setMaterials(data.materials);
@@ -24,6 +27,7 @@ const MaterialsList = ({ sectorId, institutionId }) => {
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+      setError(true);
       alert("Hubo un error de conexion, intente de nuevo");
     }
   };
@@ -59,6 +63,17 @@ const MaterialsList = ({ sectorId, institutionId }) => {
   useEffect(() => {
     loadData();
   }, [isFocused]);
+
+  if (error) {
+    return (
+      <NotFound
+        onPress={() => {
+          setIsLoading(true);
+          loadData();
+        }}
+      />
+    );
+  }
 
   if (isLoading) {
     return <Loading />;

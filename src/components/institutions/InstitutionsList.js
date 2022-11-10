@@ -20,7 +20,6 @@ const InstitutionsList = ({ navigation }) => {
   const loadInstitutions = async () => {
     try {
       setError(false);
-      setIsLoading(true);
       const dataApi = await getInstitutions();
       setInstitutions(dataApi.data);
       setIsLoading(false);
@@ -28,6 +27,7 @@ const InstitutionsList = ({ navigation }) => {
       console.log(error);
       setIsLoading(false);
       setError(true);
+      alert("Hubo un error de conexion, intente de nuevo");
     }
   };
 
@@ -70,7 +70,14 @@ const InstitutionsList = ({ navigation }) => {
   };
 
   if (error) {
-    return <NotFound />;
+    return (
+      <NotFound
+        onPress={() => {
+          setIsLoading(true);
+          loadInstitutions();
+        }}
+      />
+    );
   }
 
   if (isLoading) {

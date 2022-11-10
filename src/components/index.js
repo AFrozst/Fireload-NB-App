@@ -16,13 +16,11 @@ import DetailHeader from "./institutions/DetailHeader";
 import InstitutionsList from "./institutions/InstitutionsList";
 import DetailsDesc from "./institutions/DetailsDesc";
 import FireSectorsList from "./fireSectors/FireSectorsList";
-import InstitutionCard from "./others/InstitutionCard";
 import HeaderFireSector from "./materials/Header";
 import MaterialsList from "./materials/MaterialsList";
 import LoginComponet from "./auth/LoginComponet";
 import RegisterComponent from "./auth/RegisterComponent";
 import Message from "./common/Message";
-import UDcomponent from "./common/UDcomponent";
 import { ViewBlocked, ViewBlockedPressable } from "./common/ViewBlocked";
 import { ModalOptions, ModalMessageDownloading } from "./common/MyModals";
 import BannerInformation from "./information/BannerInformation";
@@ -51,14 +49,12 @@ export {
   InstitutionsList,
   DetailsDesc,
   FireSectorsList,
-  InstitutionCard,
   HeaderFireSector,
   MaterialsList,
   CustomButton,
   LoginComponet,
   RegisterComponent,
   Message,
-  UDcomponent,
   ViewBlocked,
   ViewBlockedPressable,
   ModalOptions,

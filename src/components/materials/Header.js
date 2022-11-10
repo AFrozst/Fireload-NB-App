@@ -65,8 +65,6 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     padding: SIZES.padding,
-    //flex: 1,
-    //padding: SIZES.padding - 5,
   },
   title: {
     color: COLORS.white,
@@ -80,7 +78,6 @@ const styles = StyleSheet.create({
     lineHeight: SIZES.large,
   },
   headerDataContainer: {
-    //flex: 1,
     alignItems: "center",
     justifyContent: "center",
     padding: SIZES.padding,

@@ -38,11 +38,11 @@ const MaterialsList = ({ sectorId, institutionId }) => {
       "Estas seguro de eliminar este material?",
       [
         {
-          text: "Cancel",
+          text: "CANCELAR",
           style: "cancel",
         },
         {
-          text: "OK",
+          text: "ELIMINAR",
           onPress: async () => {
             try {
               await deleteMaterial(institutionId, sectorId, id);

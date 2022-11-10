@@ -10,7 +10,7 @@ import FireSectorItem from "../components/others/FireSectorItem";
 import { Layout } from "../layouts";
 
 const InstitutionDetailScreen = ({ navigation, route }) => {
-  const [institution, setInstitution] = useState(null);
+  const [institution, setInstitution] = useState({});
   const [fireSectors, setFireSectors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

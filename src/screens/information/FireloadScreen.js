@@ -11,7 +11,7 @@ import {
 } from "../../constants";
 
 const FireloadScreen = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
   const renderItemFormule = (item, index) => {
     return (

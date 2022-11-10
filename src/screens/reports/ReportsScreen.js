@@ -13,23 +13,27 @@ import {
   ReportCard,
   HeaderReports,
   BannerReport,
+  NotFound,
 } from "../../components";
 import { COLORS, SIZES, FONTS } from "../../constants";
 import { getInstitutions } from "../../services/institution";
 
 const Reports = ({ navigation }) => {
   const [reports, setReports] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const loadReports = async () => {
     try {
-      setLoading(true);
+      setError(false);
       const response = await getInstitutions();
       setReports(response.data);
-      setLoading(false);
+      setIsLoading(false);
     } catch (error) {
-      alert(error);
-      setLoading(false);
+      console.log(error);
+      setIsLoading(false);
+      setError(true);
+      alert("Hubo un error de conexion, intente de nuevo");
     }
   };
 
@@ -40,6 +44,17 @@ const Reports = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return <ReportCard institution={item} />;
   };
+
+  if (error) {
+    return (
+      <NotFound
+        onPress={() => {
+          setIsLoading(true);
+          loadReports();
+        }}
+      />
+    );
+  }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -63,7 +78,7 @@ const Reports = ({ navigation }) => {
         subtitle={"Elabora un informa de estudio de carga de fuego"}
       />
       <View style={styles.container}>
-        {loading ? (
+        {isloading ? (
           <View style={{ marginTop: 20 }}>
             <ActivityIndicator size="large" color={COLORS.quaternary} />
           </View>

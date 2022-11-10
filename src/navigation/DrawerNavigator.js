@@ -1,7 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import HomeNavigator from "./HomeNavigator";
 import { HOME, PROFILE, ABOUT } from "../constants/routes/names";
 import SideMenu from "./Drawer/SideMenu";
 import { GlobalContext } from "../context/Provider";

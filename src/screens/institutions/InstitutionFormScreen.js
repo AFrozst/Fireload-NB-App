@@ -30,12 +30,12 @@ const InstitutionFormScreen = ({ navigation, route }) => {
         } else {
           await saveInstitution(institution);
           Alert.alert("Exito", "Institucion creada con exito");
-          navigation.navigate("Institutions");
           navigation.goBack();
         }
       } else {
         const id = route.params.institution.id;
         await updateInstitution(id, institution);
+        Alert.alert("Exito", "Institucion actualizada con exito");
         navigation.goBack();
       }
       

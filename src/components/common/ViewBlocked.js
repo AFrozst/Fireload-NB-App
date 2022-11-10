@@ -1,13 +1,11 @@
 import React from "react";
-import { View, StyleSheet, useWindowDimensions, Pressable } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 
 export const ViewBlocked = () => {
-  const { width, height } = useWindowDimensions();
   return <View style={styles.containerBlocked} />;
 };
 
 export const ViewBlockedPressable = ({ enableBackdropDismiss, onDismiss }) => {
-  const { width, height } = useWindowDimensions();
   return (
     <Pressable
       style={styles.containerBlocked}

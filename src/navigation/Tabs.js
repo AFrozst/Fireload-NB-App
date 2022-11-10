@@ -12,9 +12,7 @@ import {
 
 // Screens
 import Home from "../screens/Home";
-import InformationScreen from "../screens/information/InformationScreen";
 import ReportsScreen from "../screens/reports/ReportsScreen";
-import InstitutionsScreen from "../screens/institutions/InstitutionsScreen";
 
 // Stacks
 import InstitutionsStackScreen from "./Stacks/InstitutionsStack";

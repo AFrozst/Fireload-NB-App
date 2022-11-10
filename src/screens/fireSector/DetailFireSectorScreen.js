@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { Layout } from "../../layouts";
 import {
   FocusedStatusBar,
-  HeaderFireSector,
   MaterialsList,
   AddButton,
 } from "../../components";

@@ -118,6 +118,15 @@ const RegisterComponent = ({
             title={"CREAR"}
           />
 
+          <View style={styles.termsAndCondtions}>
+            <Text style={[styles.infoText, {
+              fontSize: SIZES.small,
+            }]}>{"Al crearse la cuenta esta usted aceptando los "}</Text>
+            <Text style={[styles.linkBtn, {
+              fontSize: SIZES.small,
+            }]}>{"Términos y condiciones de uso"}</Text>
+          </View>
+
           <View style={styles.createSection}>
             <Text style={styles.infoText}>Ya tienes una cuenta?</Text>
             <TouchableOpacity
@@ -176,6 +185,12 @@ const styles = StyleSheet.create({
   },
   icon: {
     padding: 7,
+  },
+  termsAndCondtions: {
+    flex: 1,
+    flexDirection: "column",
+    marginBottom: SIZES.padding,
+    alignItems: "center",
   },
 });
 

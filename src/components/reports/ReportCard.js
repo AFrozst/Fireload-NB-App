@@ -7,8 +7,6 @@ import { ModalMessageDownloading } from "../common/MyModals";
 import * as FileSystem from "expo-file-system";
 import * as Sharing from "expo-sharing";
 
-const API = "http://10.0.2.2:5000";
-
 const ReportCardPureComponent = ({ institution }) => {
   const messageGenerate = "Estamos generando su reporte del estudio";
   const messageDownload = "Estamos descargando su reporte del estudio";
@@ -17,7 +15,7 @@ const ReportCardPureComponent = ({ institution }) => {
 
   const downloadFile = async (urlFilename, filename) => {
     setMessageModal(messageDownload);
-    let url = `${API}${urlFilename}`;
+    let url = urlFilename;
     let fileUri = FileSystem.documentDirectory + filename;
 
     const downloadResumable = FileSystem.createDownloadResumable(url, fileUri);
@@ -38,7 +36,7 @@ const ReportCardPureComponent = ({ institution }) => {
       const response = await generateReport(id);
       if (response.status === 200) {
         await downloadFile(
-          response.data.url_pathFileName,
+          response.data.url_filename,
           response.data.filename
         );
       }
@@ -46,7 +44,7 @@ const ReportCardPureComponent = ({ institution }) => {
       console.log(error);
       setIsDownloading(false);
       setMessageModal("");
-      alert("Ha ocurrido un error al generar el reporte");
+      alert("Ha ocurrido un error al generar el reporte. Intentelo más tarde");
     }
   };
 
